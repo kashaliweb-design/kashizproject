@@ -1,0 +1,26 @@
+# Robots.txt file for Toolify - All-in-One Tool Collection
+# This file tells search engines how to crawl and index the site
+
+# Allow all bots to access all content
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://yourwebsite.com/sitemap.xml
+
+# Crawl delay (optional - helps prevent server overload)
+Crawl-delay: 1
+
+# Specific rules for different bots (optional)
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+# Block access to specific directories if needed (currently none)
+# Disallow: /admin/
+# Disallow: /private/
