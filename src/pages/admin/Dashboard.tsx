@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { LogOut, Search, Edit, Save, X, Image as ImageIcon, FileText, Tag, Globe, BarChart, Settings } from 'lucide-react';
+import { LogOut, Search, Edit, Save, X, Image as ImageIcon, FileText, Tag, Globe, BarChart, Settings, FileEdit, HelpCircle, Plus, Trash2, AlertCircle } from 'lucide-react';
 import { PageData, initialPagesData } from '../../utils/pagesData';
 
 const Dashboard: React.FC = () => {
@@ -10,6 +10,11 @@ const Dashboard: React.FC = () => {
   const [selectedPage, setSelectedPage] = useState<PageData | null>(null);
   const [editMode, setEditMode] = useState(false);
   const [filterCategory, setFilterCategory] = useState('all');
+  const [activeTab, setActiveTab] = useState<'pages' | 'content' | 'faq'>('pages');
+  const [pageContent, setPageContent] = useState('');
+  const [wordCount, setWordCount] = useState(0);
+  const [faqs, setFaqs] = useState<{id: number, question: string, answer: string}[]>([]);
+  const [newFaq, setNewFaq] = useState({question: '', answer: ''});
 
   useEffect(() => {
     const isAuth = localStorage.getItem('adminAuth');
@@ -18,7 +23,14 @@ const Dashboard: React.FC = () => {
       return;
     }
     loadPagesData();
+    loadContent();
+    loadFaqs();
   }, [navigate]);
+
+  useEffect(() => {
+    const words = pageContent.trim().split(/\s+/).filter(word => word.length > 0);
+    setWordCount(words.length);
+  }, [pageContent]);
 
   const loadPagesData = () => {
     const savedData = localStorage.getItem('pagesData');
@@ -28,6 +40,40 @@ const Dashboard: React.FC = () => {
       setPages(initialPagesData);
       localStorage.setItem('pagesData', JSON.stringify(initialPagesData));
     }
+  };
+
+  const loadContent = () => {
+    const savedContent = localStorage.getItem('pageContent');
+    if (savedContent) {
+      setPageContent(savedContent);
+    }
+  };
+
+  const loadFaqs = () => {
+    const savedFaqs = localStorage.getItem('faqs');
+    if (savedFaqs) {
+      setFaqs(JSON.parse(savedFaqs));
+    }
+  };
+
+  const handleSaveContent = () => {
+    localStorage.setItem('pageContent', pageContent);
+    alert('Content saved successfully!');
+  };
+
+  const handleAddFaq = () => {
+    if (newFaq.question && newFaq.answer) {
+      const updatedFaqs = [...faqs, { id: Date.now(), ...newFaq }];
+      setFaqs(updatedFaqs);
+      localStorage.setItem('faqs', JSON.stringify(updatedFaqs));
+      setNewFaq({question: '', answer: ''});
+    }
+  };
+
+  const handleDeleteFaq = (id: number) => {
+    const updatedFaqs = faqs.filter(faq => faq.id !== id);
+    setFaqs(updatedFaqs);
+    localStorage.setItem('faqs', JSON.stringify(updatedFaqs));
   };
 
   const handleLogout = () => {
@@ -85,6 +131,52 @@ const Dashboard: React.FC = () => {
       </header>
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="mb-6 bg-white rounded-lg shadow">
+          <div className="flex border-b">
+            <button
+              onClick={() => setActiveTab('pages')}
+              className={`flex-1 px-6 py-4 text-sm font-medium transition ${
+                activeTab === 'pages'
+                  ? 'border-b-2 border-indigo-600 text-indigo-600'
+                  : 'text-gray-600 hover:text-gray-900'
+              }`}
+            >
+              <div className="flex items-center justify-center gap-2">
+                <FileText className="w-5 h-5" />
+                Pages Management
+              </div>
+            </button>
+            <button
+              onClick={() => setActiveTab('content')}
+              className={`flex-1 px-6 py-4 text-sm font-medium transition ${
+                activeTab === 'content'
+                  ? 'border-b-2 border-indigo-600 text-indigo-600'
+                  : 'text-gray-600 hover:text-gray-900'
+              }`}
+            >
+              <div className="flex items-center justify-center gap-2">
+                <FileEdit className="w-5 h-5" />
+                Content Update
+              </div>
+            </button>
+            <button
+              onClick={() => setActiveTab('faq')}
+              className={`flex-1 px-6 py-4 text-sm font-medium transition ${
+                activeTab === 'faq'
+                  ? 'border-b-2 border-indigo-600 text-indigo-600'
+                  : 'text-gray-600 hover:text-gray-900'
+              }`}
+            >
+              <div className="flex items-center justify-center gap-2">
+                <HelpCircle className="w-5 h-5" />
+                FAQ Management
+              </div>
+            </button>
+          </div>
+        </div>
+
+        {activeTab === 'pages' && (
+        <>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
           <div className="bg-white rounded-lg shadow p-6">
             <div className="flex items-center justify-between">
@@ -178,6 +270,169 @@ const Dashboard: React.FC = () => {
             </table>
           </div>
         </div>
+        </>
+        )}
+
+        {activeTab === 'content' && (
+          <div className="space-y-6">
+            <div className="bg-white rounded-lg shadow p-6">
+              <div className="flex items-center justify-between mb-6">
+                <div>
+                  <h2 className="text-2xl font-bold text-gray-900">Page Content Editor</h2>
+                  <p className="text-sm text-gray-600 mt-1">Write and update your page content (up to 2000 words)</p>
+                </div>
+                <div className="flex items-center gap-4">
+                  <div className="text-right">
+                    <p className="text-sm text-gray-600">Word Count</p>
+                    <p className={`text-2xl font-bold ${
+                      wordCount > 2000 ? 'text-red-600' : wordCount > 1800 ? 'text-orange-600' : 'text-green-600'
+                    }`}>
+                      {wordCount} / 2000
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {wordCount > 2000 && (
+                <div className="mb-4 p-4 bg-red-50 border border-red-200 rounded-lg flex items-start gap-3">
+                  <AlertCircle className="w-5 h-5 text-red-600 mt-0.5" />
+                  <div>
+                    <p className="text-sm font-medium text-red-800">Word limit exceeded!</p>
+                    <p className="text-sm text-red-600">Please reduce your content to 2000 words or less.</p>
+                  </div>
+                </div>
+              )}
+
+              <div className="mb-4">
+                <label className="block text-sm font-medium text-gray-700 mb-2">Content</label>
+                <textarea
+                  value={pageContent}
+                  onChange={(e) => setPageContent(e.target.value)}
+                  rows={20}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent font-mono text-sm"
+                  placeholder="Start writing your content here...\n\nYou can write up to 2000 words. This content will be displayed on your website pages."
+                />
+              </div>
+
+              <div className="flex items-center justify-between pt-4 border-t">
+                <div className="text-sm text-gray-600">
+                  <p>Characters: {pageContent.length}</p>
+                </div>
+                <button
+                  onClick={handleSaveContent}
+                  disabled={wordCount > 2000}
+                  className="flex items-center gap-2 px-6 py-3 bg-indigo-600 hover:bg-indigo-700 disabled:bg-gray-400 disabled:cursor-not-allowed text-white rounded-lg transition"
+                >
+                  <Save className="w-5 h-5" />
+                  Save Content
+                </button>
+              </div>
+            </div>
+
+            <div className="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-lg p-6 border border-indigo-100">
+              <h3 className="text-lg font-semibold text-gray-900 mb-3">Content Writing Tips</h3>
+              <ul className="space-y-2 text-sm text-gray-700">
+                <li className="flex items-start gap-2">
+                  <span className="text-indigo-600 font-bold">•</span>
+                  <span>Write clear, engaging content that provides value to your readers</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-indigo-600 font-bold">•</span>
+                  <span>Use headings and subheadings to organize your content</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-indigo-600 font-bold">•</span>
+                  <span>Include relevant keywords naturally for better SEO</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-indigo-600 font-bold">•</span>
+                  <span>Keep paragraphs short and easy to read</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        )}
+
+        {activeTab === 'faq' && (
+          <div className="space-y-6">
+            <div className="bg-white rounded-lg shadow p-6">
+              <div className="mb-6">
+                <h2 className="text-2xl font-bold text-gray-900">FAQ Management</h2>
+                <p className="text-sm text-gray-600 mt-1">Add and manage frequently asked questions</p>
+              </div>
+
+              <div className="mb-8 p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border border-blue-100">
+                <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                  <Plus className="w-5 h-5 text-indigo-600" />
+                  Add New FAQ
+                </h3>
+                <div className="space-y-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">Question</label>
+                    <input
+                      type="text"
+                      value={newFaq.question}
+                      onChange={(e) => setNewFaq({...newFaq, question: e.target.value})}
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500"
+                      placeholder="Enter the question..."
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">Answer</label>
+                    <textarea
+                      value={newFaq.answer}
+                      onChange={(e) => setNewFaq({...newFaq, answer: e.target.value})}
+                      rows={4}
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500"
+                      placeholder="Enter the answer..."
+                    />
+                  </div>
+                  <button
+                    onClick={handleAddFaq}
+                    className="flex items-center gap-2 px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg transition"
+                  >
+                    <Plus className="w-5 h-5" />
+                    Add FAQ
+                  </button>
+                </div>
+              </div>
+
+              <div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">Existing FAQs ({faqs.length})</h3>
+                {faqs.length === 0 ? (
+                  <div className="text-center py-12 bg-gray-50 rounded-lg">
+                    <HelpCircle className="w-12 h-12 text-gray-400 mx-auto mb-3" />
+                    <p className="text-gray-600">No FAQs added yet. Add your first FAQ above!</p>
+                  </div>
+                ) : (
+                  <div className="space-y-4">
+                    {faqs.map((faq) => (
+                      <div key={faq.id} className="p-5 bg-gray-50 rounded-lg border border-gray-200 hover:border-indigo-300 transition">
+                        <div className="flex items-start justify-between gap-4">
+                          <div className="flex-1">
+                            <h4 className="text-lg font-semibold text-gray-900 mb-2">
+                              Q: {faq.question}
+                            </h4>
+                            <p className="text-gray-700 leading-relaxed">
+                              A: {faq.answer}
+                            </p>
+                          </div>
+                          <button
+                            onClick={() => handleDeleteFaq(faq.id)}
+                            className="p-2 text-red-600 hover:bg-red-50 rounded-lg transition"
+                            title="Delete FAQ"
+                          >
+                            <Trash2 className="w-5 h-5" />
+                          </button>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        )}
       </main>
 
       {editMode && selectedPage && (

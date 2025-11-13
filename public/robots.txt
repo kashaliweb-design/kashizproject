@@ -1,26 +1,31 @@
-# Robots.txt file for Toolify - All-in-One Tool Collection
+# Robots.txt file for Toolistaan - All-in-One Tool Collection
 # This file tells search engines how to crawl and index the site
 
-# Allow all bots to access all content
+# Allow all bots to access all content except admin
 User-agent: *
 Allow: /
+Disallow: /admin/
 
 # Sitemap location
-Sitemap: https://yourwebsite.com/sitemap.xml
+Sitemap: https://www.toolistaan.com/sitemap.xml
 
 # Crawl delay (optional - helps prevent server overload)
 Crawl-delay: 1
 
-# Specific rules for different bots (optional)
+# Specific rules for different bots
 User-agent: Googlebot
 Allow: /
+Disallow: /admin/
 
 User-agent: Bingbot
 Allow: /
+Disallow: /admin/
 
 User-agent: Slurp
 Allow: /
+Disallow: /admin/
 
-# Block access to specific directories if needed (currently none)
-# Disallow: /admin/
-# Disallow: /private/
+# Block admin area from all search engines
+User-agent: *
+Disallow: /admin/login
+Disallow: /admin/dashboard

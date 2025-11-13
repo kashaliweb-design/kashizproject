@@ -2,480 +2,480 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Home Page -->
   <url>
-    <loc>https://yourwebsite.com/</loc>
-    <lastmod>2025-01-15</lastmod>
+    <loc>https://www.toolistaan.com/</loc>
+    <lastmod>2025-11-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <!-- Text Tools -->
   <url>
-    <loc>https://yourwebsite.com/text-tools/word-counter</loc>
-    <lastmod>2025-01-15</lastmod>
+    <loc>https://www.toolistaan.com/text-tools/word-counter</loc>
+    <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourwebsite.com/text-tools/character-counter</loc>
-    <lastmod>2025-01-15</lastmod>
+    <loc>https://www.toolistaan.com/text-tools/character-counter</loc>
+    <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourwebsite.com/text-tools/sentence-counter</loc>
-    <lastmod>2025-01-15</lastmod>
+    <loc>https://www.toolistaan.com/text-tools/sentence-counter</loc>
+    <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://yourwebsite.com/text-tools/paragraph-counter</loc>
-    <lastmod>2025-01-15</lastmod>
+    <loc>https://www.toolistaan.com/text-tools/paragraph-counter</loc>
+    <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://yourwebsite.com/text-tools/case-converter</loc>
-    <lastmod>2025-01-15</lastmod>
+    <loc>https://www.toolistaan.com/text-tools/case-converter</loc>
+    <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourwebsite.com/text-tools/remove-duplicates</loc>
-    <lastmod>2025-01-15</lastmod>
+    <loc>https://www.toolistaan.com/text-tools/remove-duplicates</loc>
+    <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://yourwebsite.com/text-tools/reverse-text</loc>
-    <lastmod>2025-01-15</lastmod>
+    <loc>https://www.toolistaan.com/text-tools/reverse-text</loc>
+    <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://yourwebsite.com/text-tools/text-to-binary</loc>
-    <lastmod>2025-01-15</lastmod>
+    <loc>https://www.toolistaan.com/text-tools/text-to-binary</loc>
+    <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://yourwebsite.com/text-tools/text-to-ascii</loc>
-    <lastmod>2025-01-15</lastmod>
+    <loc>https://www.toolistaan.com/text-tools/text-to-ascii</loc>
+    <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://yourwebsite.com/text-tools/remove-extra-spaces</loc>
-    <lastmod>2025-01-15</lastmod>
+    <loc>https://www.toolistaan.com/text-tools/remove-extra-spaces</loc>
+    <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://yourwebsite.com/text-tools/alphabetical-order</loc>
-    <lastmod>2025-01-15</lastmod>
+    <loc>https://www.toolistaan.com/text-tools/alphabetical-order</loc>
+    <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://yourwebsite.com/text-tools/text-sorter</loc>
-    <lastmod>2025-01-15</lastmod>
+    <loc>https://www.toolistaan.com/text-tools/text-sorter</loc>
+    <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://yourwebsite.com/text-tools/palindrome-checker</loc>
-    <lastmod>2025-01-15</lastmod>
+    <loc>https://www.toolistaan.com/text-tools/palindrome-checker</loc>
+    <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://yourwebsite.com/text-tools/text-encryptor</loc>
-    <lastmod>2025-01-15</lastmod>
+    <loc>https://www.toolistaan.com/text-tools/text-encryptor</loc>
+    <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://yourwebsite.com/text-tools/rot13-encoder</loc>
-    <lastmod>2025-01-15</lastmod>
+    <loc>https://www.toolistaan.com/text-tools/rot13-encoder</loc>
+    <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://yourwebsite.com/text-tools/text-to-morse</loc>
-    <lastmod>2025-01-15</lastmod>
+    <loc>https://www.toolistaan.com/text-tools/text-to-morse</loc>
+    <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://yourwebsite.com/text-tools/text-to-hex</loc>
-    <lastmod>2025-01-15</lastmod>
+    <loc>https://www.toolistaan.com/text-tools/text-to-hex</loc>
+    <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://yourwebsite.com/text-tools/text-to-octal</loc>
-    <lastmod>2025-01-15</lastmod>
+    <loc>https://www.toolistaan.com/text-tools/text-to-octal</loc>
+    <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <!-- Calculator Tools -->
   <url>
-    <loc>https://yourwebsite.com/calculator-tools/basic-calculator</loc>
-    <lastmod>2025-01-15</lastmod>
+    <loc>https://www.toolistaan.com/calculator-tools/basic-calculator</loc>
+    <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourwebsite.com/calculator-tools/age-calculator</loc>
-    <lastmod>2025-01-15</lastmod>
+    <loc>https://www.toolistaan.com/calculator-tools/age-calculator</loc>
+    <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourwebsite.com/calculator-tools/bmi-calculator</loc>
-    <lastmod>2025-01-15</lastmod>
+    <loc>https://www.toolistaan.com/calculator-tools/bmi-calculator</loc>
+    <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourwebsite.com/calculator-tools/percentage-calculator</loc>
-    <lastmod>2025-01-15</lastmod>
+    <loc>https://www.toolistaan.com/calculator-tools/percentage-calculator</loc>
+    <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourwebsite.com/calculator-tools/discount-calculator</loc>
-    <lastmod>2025-01-15</lastmod>
+    <loc>https://www.toolistaan.com/calculator-tools/discount-calculator</loc>
+    <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourwebsite.com/calculator-tools/loan-calculator</loc>
-    <lastmod>2025-01-15</lastmod>
+    <loc>https://www.toolistaan.com/calculator-tools/loan-calculator</loc>
+    <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourwebsite.com/calculator-tools/emi-calculator</loc>
-    <lastmod>2025-01-15</lastmod>
+    <loc>https://www.toolistaan.com/calculator-tools/emi-calculator</loc>
+    <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourwebsite.com/calculator-tools/tip-calculator</loc>
-    <lastmod>2025-01-15</lastmod>
+    <loc>https://www.toolistaan.com/calculator-tools/tip-calculator</loc>
+    <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourwebsite.com/calculator-tools/date-difference</loc>
-    <lastmod>2025-01-15</lastmod>
+    <loc>https://www.toolistaan.com/calculator-tools/date-difference</loc>
+    <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourwebsite.com/calculator-tools/gst-calculator</loc>
-    <lastmod>2025-01-15</lastmod>
+    <loc>https://www.toolistaan.com/calculator-tools/gst-calculator</loc>
+    <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourwebsite.com/calculator-tools/compound-interest</loc>
-    <lastmod>2025-01-15</lastmod>
+    <loc>https://www.toolistaan.com/calculator-tools/compound-interest</loc>
+    <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourwebsite.com/calculator-tools/simple-interest</loc>
-    <lastmod>2025-01-15</lastmod>
+    <loc>https://www.toolistaan.com/calculator-tools/simple-interest</loc>
+    <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourwebsite.com/calculator-tools/area-calculator</loc>
-    <lastmod>2025-01-15</lastmod>
+    <loc>https://www.toolistaan.com/calculator-tools/area-calculator</loc>
+    <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://yourwebsite.com/calculator-tools/volume-calculator</loc>
-    <lastmod>2025-01-15</lastmod>
+    <loc>https://www.toolistaan.com/calculator-tools/volume-calculator</loc>
+    <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://yourwebsite.com/calculator-tools/love-calculator</loc>
-    <lastmod>2025-01-15</lastmod>
+    <loc>https://www.toolistaan.com/calculator-tools/love-calculator</loc>
+    <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <!-- Unit Converters -->
   <url>
-    <loc>https://yourwebsite.com/unit-converters/length-converter</loc>
-    <lastmod>2025-01-15</lastmod>
+    <loc>https://www.toolistaan.com/unit-converters/length-converter</loc>
+    <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourwebsite.com/unit-converters/weight-converter</loc>
-    <lastmod>2025-01-15</lastmod>
+    <loc>https://www.toolistaan.com/unit-converters/weight-converter</loc>
+    <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourwebsite.com/unit-converters/temperature-converter</loc>
-    <lastmod>2025-01-15</lastmod>
+    <loc>https://www.toolistaan.com/unit-converters/temperature-converter</loc>
+    <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourwebsite.com/unit-converters/speed-converter</loc>
-    <lastmod>2025-01-15</lastmod>
+    <loc>https://www.toolistaan.com/unit-converters/speed-converter</loc>
+    <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://yourwebsite.com/unit-converters/time-converter</loc>
-    <lastmod>2025-01-15</lastmod>
+    <loc>https://www.toolistaan.com/unit-converters/time-converter</loc>
+    <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://yourwebsite.com/unit-converters/area-converter</loc>
-    <lastmod>2025-01-15</lastmod>
+    <loc>https://www.toolistaan.com/unit-converters/area-converter</loc>
+    <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://yourwebsite.com/unit-converters/volume-converter</loc>
-    <lastmod>2025-01-15</lastmod>
+    <loc>https://www.toolistaan.com/unit-converters/volume-converter</loc>
+    <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://yourwebsite.com/unit-converters/pressure-converter</loc>
-    <lastmod>2025-01-15</lastmod>
+    <loc>https://www.toolistaan.com/unit-converters/pressure-converter</loc>
+    <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://yourwebsite.com/unit-converters/energy-converter</loc>
-    <lastmod>2025-01-15</lastmod>
+    <loc>https://www.toolistaan.com/unit-converters/energy-converter</loc>
+    <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://yourwebsite.com/unit-converters/data-storage-converter</loc>
-    <lastmod>2025-01-15</lastmod>
+    <loc>https://www.toolistaan.com/unit-converters/data-storage-converter</loc>
+    <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://yourwebsite.com/unit-converters/power-converter</loc>
-    <lastmod>2025-01-15</lastmod>
+    <loc>https://www.toolistaan.com/unit-converters/power-converter</loc>
+    <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://yourwebsite.com/unit-converters/currency-converter</loc>
-    <lastmod>2025-01-15</lastmod>
+    <loc>https://www.toolistaan.com/unit-converters/currency-converter</loc>
+    <lastmod>2025-11-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- Color Tools -->
   <url>
-    <loc>https://yourwebsite.com/color-tools/color-picker</loc>
-    <lastmod>2025-01-15</lastmod>
+    <loc>https://www.toolistaan.com/color-tools/color-picker</loc>
+    <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourwebsite.com/color-tools/color-converter</loc>
-    <lastmod>2025-01-15</lastmod>
+    <loc>https://www.toolistaan.com/color-tools/color-converter</loc>
+    <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourwebsite.com/color-tools/gradient-generator</loc>
-    <lastmod>2025-01-15</lastmod>
+    <loc>https://www.toolistaan.com/color-tools/gradient-generator</loc>
+    <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourwebsite.com/color-tools/color-palette-generator</loc>
-    <lastmod>2025-01-15</lastmod>
+    <loc>https://www.toolistaan.com/color-tools/color-palette-generator</loc>
+    <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourwebsite.com/color-tools/random-color-generator</loc>
-    <lastmod>2025-01-15</lastmod>
+    <loc>https://www.toolistaan.com/color-tools/random-color-generator</loc>
+    <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://yourwebsite.com/color-tools/color-contrast-checker</loc>
-    <lastmod>2025-01-15</lastmod>
+    <loc>https://www.toolistaan.com/color-tools/color-contrast-checker</loc>
+    <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourwebsite.com/color-tools/hex-to-rgb</loc>
-    <lastmod>2025-01-15</lastmod>
+    <loc>https://www.toolistaan.com/color-tools/hex-to-rgb</loc>
+    <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://yourwebsite.com/color-tools/rgb-to-hex</loc>
-    <lastmod>2025-01-15</lastmod>
+    <loc>https://www.toolistaan.com/color-tools/rgb-to-hex</loc>
+    <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <!-- SEO Tools -->
   <url>
-    <loc>https://yourwebsite.com/seo-tools/meta-tag-generator</loc>
-    <lastmod>2025-01-15</lastmod>
+    <loc>https://www.toolistaan.com/seo-tools/meta-tag-generator</loc>
+    <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourwebsite.com/seo-tools/keyword-density-checker</loc>
-    <lastmod>2025-01-15</lastmod>
+    <loc>https://www.toolistaan.com/seo-tools/keyword-density-checker</loc>
+    <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourwebsite.com/seo-tools/url-slug-generator</loc>
-    <lastmod>2025-01-15</lastmod>
+    <loc>https://www.toolistaan.com/seo-tools/url-slug-generator</loc>
+    <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://yourwebsite.com/seo-tools/sitemap-generator</loc>
-    <lastmod>2025-01-15</lastmod>
+    <loc>https://www.toolistaan.com/seo-tools/sitemap-generator</loc>
+    <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourwebsite.com/seo-tools/robots-generator</loc>
-    <lastmod>2025-01-15</lastmod>
+    <loc>https://www.toolistaan.com/seo-tools/robots-generator</loc>
+    <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourwebsite.com/seo-tools/heading-analyzer</loc>
-    <lastmod>2025-01-15</lastmod>
+    <loc>https://www.toolistaan.com/seo-tools/heading-analyzer</loc>
+    <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://yourwebsite.com/seo-tools/open-graph-generator</loc>
-    <lastmod>2025-01-15</lastmod>
+    <loc>https://www.toolistaan.com/seo-tools/open-graph-generator</loc>
+    <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourwebsite.com/seo-tools/schema-markup-generator</loc>
-    <lastmod>2025-01-15</lastmod>
+    <loc>https://www.toolistaan.com/seo-tools/schema-markup-generator</loc>
+    <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourwebsite.com/seo-tools/seo-analyzer</loc>
-    <lastmod>2025-01-15</lastmod>
+    <loc>https://www.toolistaan.com/seo-tools/seo-analyzer</loc>
+    <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://yourwebsite.com/seo-tools/page-speed-analyzer</loc>
-    <lastmod>2025-01-15</lastmod>
+    <loc>https://www.toolistaan.com/seo-tools/page-speed-analyzer</loc>
+    <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourwebsite.com/seo-tools/backlink-checker</loc>
-    <lastmod>2025-01-15</lastmod>
+    <loc>https://www.toolistaan.com/seo-tools/backlink-checker</loc>
+    <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourwebsite.com/seo-tools/google-index-checker</loc>
-    <lastmod>2025-01-15</lastmod>
+    <loc>https://www.toolistaan.com/seo-tools/google-index-checker</loc>
+    <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://yourwebsite.com/seo-tools/link-analyzer</loc>
-    <lastmod>2025-01-15</lastmod>
+    <loc>https://www.toolistaan.com/seo-tools/link-analyzer</loc>
+    <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://yourwebsite.com/seo-tools/image-seo-analyzer</loc>
-    <lastmod>2025-01-15</lastmod>
+    <loc>https://www.toolistaan.com/seo-tools/image-seo-analyzer</loc>
+    <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://yourwebsite.com/seo-tools/social-media-preview</loc>
-    <lastmod>2025-01-15</lastmod>
+    <loc>https://www.toolistaan.com/seo-tools/social-media-preview</loc>
+    <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://yourwebsite.com/seo-tools/canonical-tag-generator</loc>
-    <lastmod>2025-01-15</lastmod>
+    <loc>https://www.toolistaan.com/seo-tools/canonical-tag-generator</loc>
+    <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <!-- File Tools -->
   <url>
-    <loc>https://yourwebsite.com/file-tools/csv-to-json</loc>
-    <lastmod>2025-01-15</lastmod>
+    <loc>https://www.toolistaan.com/file-tools/csv-to-json</loc>
+    <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://yourwebsite.com/file-tools/json-to-csv</loc>
-    <lastmod>2025-01-15</lastmod>
+    <loc>https://www.toolistaan.com/file-tools/json-to-csv</loc>
+    <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://yourwebsite.com/file-tools/txt-to-pdf</loc>
-    <lastmod>2025-01-15</lastmod>
+    <loc>https://www.toolistaan.com/file-tools/txt-to-pdf</loc>
+    <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://yourwebsite.com/file-tools/zip-extractor</loc>
-    <lastmod>2025-01-15</lastmod>
+    <loc>https://www.toolistaan.com/file-tools/zip-extractor</loc>
+    <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <!-- Audio Tools -->
   <url>
-    <loc>https://yourwebsite.com/audio-tools/mp3-cutter</loc>
-    <lastmod>2025-01-15</lastmod>
+    <loc>https://www.toolistaan.com/audio-tools/mp3-cutter</loc>
+    <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://yourwebsite.com/audio-tools/audio-converter</loc>
-    <lastmod>2025-01-15</lastmod>
+    <loc>https://www.toolistaan.com/audio-tools/audio-converter</loc>
+    <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <!-- Video Tools -->
   <url>
-    <loc>https://yourwebsite.com/video-tools/video-cutter</loc>
-    <lastmod>2025-01-15</lastmod>
+    <loc>https://www.toolistaan.com/video-tools/video-cutter</loc>
+    <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
