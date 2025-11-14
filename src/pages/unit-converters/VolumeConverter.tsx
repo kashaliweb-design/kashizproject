@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Layout from '../../components/Layout';
+import PageContent from '../../components/PageContent';
 
 const VolumeConverter: React.FC = () => {
   const [value, setValue] = useState('');
@@ -245,6 +246,8 @@ const VolumeConverter: React.FC = () => {
           </div>
         </div>
       </div>
+
+        <PageContent />
     </Layout>
   );
 };

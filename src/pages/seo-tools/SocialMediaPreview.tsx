@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Layout from '../../components/Layout';
+import PageContent from '../../components/PageContent';
 
 const SocialMediaPreview: React.FC = () => {
   const [previewData, setPreviewData] = useState({
@@ -289,6 +290,8 @@ const SocialMediaPreview: React.FC = () => {
           </div>
         </div>
       </div>
+
+        <PageContent />
     </Layout>
   );
 };

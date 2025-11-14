@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Layout from '../../components/Layout';
+import PageContent from '../../components/PageContent';
 
 const CanonicalTagGenerator: React.FC = () => {
   const [currentUrl, setCurrentUrl] = useState('');
@@ -201,6 +202,8 @@ const CanonicalTagGenerator: React.FC = () => {
           </div>
         </div>
       </div>
+
+        <PageContent />
     </Layout>
   );
 };

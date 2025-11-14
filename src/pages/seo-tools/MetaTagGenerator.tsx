@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Layout from '../../components/Layout';
+import PageContent from '../../components/PageContent';
 
 const MetaTagGenerator: React.FC = () => {
   const [metaData, setMetaData] = useState({
@@ -252,6 +253,8 @@ const MetaTagGenerator: React.FC = () => {
             <p>• Test your meta tags using Facebook Debugger and Twitter Card Validator</p>
           </div>
         </div>
+
+        <PageContent />
       </div>
     </Layout>
   );

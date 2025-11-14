@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Layout from '../../components/Layout';
+import PageContent from '../../components/PageContent';
 
 const TXTToPDF: React.FC = () => {
   const [textContent, setTextContent] = useState('');
@@ -216,6 +217,8 @@ Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium dolor
           </div>
         </div>
       </div>
+
+        <PageContent />
     </Layout>
   );
 };

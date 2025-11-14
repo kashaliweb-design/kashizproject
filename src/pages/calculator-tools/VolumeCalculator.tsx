@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Layout from '../../components/Layout';
+import PageContent from '../../components/PageContent';
 
 const VolumeCalculator: React.FC = () => {
   const [shape, setShape] = useState('cube');
@@ -273,6 +274,8 @@ const VolumeCalculator: React.FC = () => {
           </div>
         </div>
       </div>
+
+        <PageContent />
     </Layout>
   );
 };

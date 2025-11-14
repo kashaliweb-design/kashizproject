@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Layout from '../../components/Layout';
+import PageContent from '../../components/PageContent';
 
 const DiscountCalculator: React.FC = () => {
   const [originalPrice, setOriginalPrice] = useState('');
@@ -225,6 +226,8 @@ const DiscountCalculator: React.FC = () => {
           )}
         </div>
       </div>
+
+        <PageContent />
     </Layout>
   );
 };

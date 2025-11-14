@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Layout from '../../components/Layout';
+import PageContent from '../../components/PageContent';
 
 const EMICalculator: React.FC = () => {
   const [principal, setPrincipal] = useState('');
@@ -315,6 +316,8 @@ const EMICalculator: React.FC = () => {
           </div>
         )}
       </div>
+
+        <PageContent />
     </Layout>
   );
 };

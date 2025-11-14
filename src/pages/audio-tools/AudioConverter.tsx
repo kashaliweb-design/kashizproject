@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Layout from '../../components/Layout';
+import PageContent from '../../components/PageContent';
 import { Upload, Download, Music } from 'lucide-react';
 
 const AudioConverter: React.FC = () => {
@@ -229,6 +230,8 @@ const AudioConverter: React.FC = () => {
           </div>
         </div>
       </div>
+
+        <PageContent />
     </Layout>
   );
 };

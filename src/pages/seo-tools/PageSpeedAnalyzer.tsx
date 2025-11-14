@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Layout from '../../components/Layout';
+import PageContent from '../../components/PageContent';
 
 const PageSpeedAnalyzer: React.FC = () => {
   const [url, setUrl] = useState('');
@@ -263,6 +264,8 @@ ${results.opportunities.map((opp: string) => `- ${opp}`).join('\n')}`;
           </button>
         </div>
       </div>
+
+        <PageContent />
     </Layout>
   );
 };

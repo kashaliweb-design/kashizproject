@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Layout from '../../components/Layout';
+import PageContent from '../../components/PageContent';
 
 const TipCalculator: React.FC = () => {
   const [billAmount, setBillAmount] = useState('');
@@ -268,6 +269,8 @@ const TipCalculator: React.FC = () => {
           </div>
         )}
       </div>
+
+        <PageContent />
     </Layout>
   );
 };

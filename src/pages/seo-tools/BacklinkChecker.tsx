@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Layout from '../../components/Layout';
+import PageContent from '../../components/PageContent';
 
 const BacklinkChecker: React.FC = () => {
   const [domain, setDomain] = useState('');
@@ -277,6 +278,8 @@ ${results.backlinks.map((link: any) =>
           </div>
         </div>
       </div>
+
+        <PageContent />
     </Layout>
   );
 };

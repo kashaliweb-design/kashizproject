@@ -53,9 +53,10 @@ const PageContent: React.FC = () => {
                     <div className="w-2 h-2 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500"></div>
                     {section.title}
                   </h3>
-                  <p className="text-white/80 leading-relaxed whitespace-pre-wrap">
-                    {section.content}
-                  </p>
+                  <div 
+                    className="text-white/80 leading-relaxed prose prose-invert max-w-none"
+                    dangerouslySetInnerHTML={{ __html: section.content }}
+                  />
                 </div>
               ))}
           </div>

@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import Layout from '../../components/Layout';
+import PageContent from '../../components/PageContent';
 import { Play, Pause, Scissors, Upload, Download, Video } from 'lucide-react';
 
 const VideoCutter: React.FC = () => {
@@ -255,6 +256,8 @@ const VideoCutter: React.FC = () => {
           </div>
         </div>
       </div>
+
+        <PageContent />
     </Layout>
   );
 };

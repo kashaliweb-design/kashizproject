@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Layout from '../../components/Layout';
+import PageContent from '../../components/PageContent';
 
 const LengthConverter: React.FC = () => {
   const [value, setValue] = useState('');
@@ -205,6 +206,8 @@ const LengthConverter: React.FC = () => {
           </div>
         </div>
       </div>
+
+        <PageContent />
     </Layout>
   );
 };

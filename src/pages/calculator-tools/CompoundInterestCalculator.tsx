@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Layout from '../../components/Layout';
+import PageContent from '../../components/PageContent';
 
 const CompoundInterestCalculator: React.FC = () => {
   const [principal, setPrincipal] = useState('');
@@ -327,6 +328,8 @@ const CompoundInterestCalculator: React.FC = () => {
           </div>
         )}
       </div>
+
+        <PageContent />
     </Layout>
   );
 };

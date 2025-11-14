@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Layout from '../../components/Layout';
+import PageContent from '../../components/PageContent';
 
 const PowerConverter: React.FC = () => {
   const [value, setValue] = useState('');
@@ -251,6 +252,8 @@ const PowerConverter: React.FC = () => {
           </div>
         </div>
       </div>
+
+        <PageContent />
     </Layout>
   );
 };

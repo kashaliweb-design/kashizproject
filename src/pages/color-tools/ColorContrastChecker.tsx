@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Layout from '../../components/Layout';
+import PageContent from '../../components/PageContent';
 
 const ColorContrastChecker: React.FC = () => {
   const [foregroundColor, setForegroundColor] = useState('#000000');
@@ -252,6 +253,8 @@ const ColorContrastChecker: React.FC = () => {
           </div>
         </div>
       </div>
+
+        <PageContent />
     </Layout>
   );
 };

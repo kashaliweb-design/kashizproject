@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Layout from '../../components/Layout';
+import PageContent from '../../components/PageContent';
 
 const CurrencyConverter: React.FC = () => {
   const [amount, setAmount] = useState('');
@@ -387,6 +388,8 @@ const CurrencyConverter: React.FC = () => {
           </div>
         )}
       </div>
+
+        <PageContent />
     </Layout>
   );
 };

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Layout from '../../components/Layout';
+import PageContent from '../../components/PageContent';
 
 const TextToMorse: React.FC = () => {
   const [text, setText] = useState('');
@@ -188,6 +189,8 @@ const TextToMorse: React.FC = () => {
           </div>
         </div>
       </div>
+
+        <PageContent />
     </Layout>
   );
 };

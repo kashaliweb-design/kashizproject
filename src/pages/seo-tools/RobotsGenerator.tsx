@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Layout from '../../components/Layout';
+import PageContent from '../../components/PageContent';
 
 const RobotsGenerator: React.FC = () => {
   const [siteUrl, setSiteUrl] = useState('');
@@ -245,6 +246,8 @@ const RobotsGenerator: React.FC = () => {
           </button>
         </div>
       </div>
+
+        <PageContent />
     </Layout>
   );
 };

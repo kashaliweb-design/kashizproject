@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import Layout from '../../components/Layout';
+import PageContent from '../../components/PageContent';
 import { Play, Pause, Scissors, Upload, Download } from 'lucide-react';
 
 const MP3Cutter: React.FC = () => {
@@ -313,6 +314,8 @@ const MP3Cutter: React.FC = () => {
           </div>
         </div>
       </div>
+
+        <PageContent />
     </Layout>
   );
 };

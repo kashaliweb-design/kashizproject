@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Layout from '../../components/Layout';
+import PageContent from '../../components/PageContent';
 
 const GSTCalculator: React.FC = () => {
   const [amount, setAmount] = useState('');
@@ -320,6 +321,8 @@ const GSTCalculator: React.FC = () => {
           </div>
         )}
       </div>
+
+        <PageContent />
     </Layout>
   );
 };

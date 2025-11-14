@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Layout from '../../components/Layout';
+import PageContent from '../../components/PageContent';
 
 const TextEncryptor: React.FC = () => {
   const [text, setText] = useState('');
@@ -220,6 +221,8 @@ const TextEncryptor: React.FC = () => {
           </div>
         </div>
       </div>
+
+        <PageContent />
     </Layout>
   );
 };

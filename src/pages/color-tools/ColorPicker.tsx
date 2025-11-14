@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Layout from '../../components/Layout';
+import PageContent from '../../components/PageContent';
 
 const ColorPicker: React.FC = () => {
   const [selectedColor, setSelectedColor] = useState('#3b82f6');
@@ -233,6 +234,8 @@ const ColorPicker: React.FC = () => {
           </div>
         </div>
       </div>
+
+        <PageContent />
     </Layout>
   );
 };

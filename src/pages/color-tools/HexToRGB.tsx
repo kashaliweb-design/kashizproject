@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Layout from '../../components/Layout';
+import PageContent from '../../components/PageContent';
 
 const HexToRGB: React.FC = () => {
   const [hexColor, setHexColor] = useState('#3b82f6');
@@ -238,6 +239,8 @@ const HexToRGB: React.FC = () => {
           </div>
         </div>
       </div>
+
+        <PageContent />
     </Layout>
   );
 };

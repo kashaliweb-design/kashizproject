@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Layout from '../../components/Layout';
+import PageContent from '../../components/PageContent';
 
 const SEOAnalyzer: React.FC = () => {
   const [url, setUrl] = useState('');
@@ -355,6 +356,8 @@ ${analysis.suggestions.map((suggestion: string) => `- ${suggestion}`).join('\n')
           </div>
         </div>
       </div>
+
+        <PageContent />
     </Layout>
   );
 };

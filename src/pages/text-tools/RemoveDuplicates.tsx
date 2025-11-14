@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Layout from '../../components/Layout';
+import PageContent from '../../components/PageContent';
 
 const RemoveDuplicates: React.FC = () => {
   const [text, setText] = useState('');
@@ -156,6 +157,8 @@ const RemoveDuplicates: React.FC = () => {
           </button>
         </div>
       </div>
+
+        <PageContent />
     </Layout>
   );
 };

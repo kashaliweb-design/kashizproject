@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Layout from '../../components/Layout';
+import PageContent from '../../components/PageContent';
 
 const PercentageCalculator: React.FC = () => {
   const [calculations, setCalculations] = useState({
@@ -258,6 +259,8 @@ const PercentageCalculator: React.FC = () => {
           </button>
         </div>
       </div>
+
+        <PageContent />
     </Layout>
   );
 };

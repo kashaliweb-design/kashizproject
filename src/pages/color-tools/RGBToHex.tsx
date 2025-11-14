@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Layout from '../../components/Layout';
+import PageContent from '../../components/PageContent';
 
 const RGBToHex: React.FC = () => {
   const [rgbValues, setRgbValues] = useState({ r: 59, g: 130, b: 246 });
@@ -230,6 +231,8 @@ const RGBToHex: React.FC = () => {
           </div>
         </div>
       </div>
+
+        <PageContent />
     </Layout>
   );
 };

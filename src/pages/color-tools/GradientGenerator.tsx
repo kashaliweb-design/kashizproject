@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Layout from '../../components/Layout';
+import PageContent from '../../components/PageContent';
 
 const GradientGenerator: React.FC = () => {
   const [color1, setColor1] = useState('#3b82f6');
@@ -268,6 +269,8 @@ const GradientGenerator: React.FC = () => {
           </div>
         </div>
       </div>
+
+        <PageContent />
     </Layout>
   );
 };

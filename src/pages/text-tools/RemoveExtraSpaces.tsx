@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Layout from '../../components/Layout';
+import PageContent from '../../components/PageContent';
 
 const RemoveExtraSpaces: React.FC = () => {
   const [text, setText] = useState('');
@@ -101,6 +102,8 @@ const RemoveExtraSpaces: React.FC = () => {
           })}
         </div>
       </div>
+
+        <PageContent />
     </Layout>
   );
 };

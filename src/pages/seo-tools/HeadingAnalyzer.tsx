@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Layout from '../../components/Layout';
+import PageContent from '../../components/PageContent';
 
 const HeadingAnalyzer: React.FC = () => {
   const [htmlContent, setHtmlContent] = useState('');
@@ -267,6 +268,8 @@ const HeadingAnalyzer: React.FC = () => {
           </div>
         </div>
       </div>
+
+        <PageContent />
     </Layout>
   );
 };

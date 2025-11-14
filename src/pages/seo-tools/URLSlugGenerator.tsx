@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Layout from '../../components/Layout';
+import PageContent from '../../components/PageContent';
 
 const URLSlugGenerator: React.FC = () => {
   const [title, setTitle] = useState('');
@@ -225,6 +226,8 @@ const URLSlugGenerator: React.FC = () => {
           </div>
         </div>
       </div>
+
+        <PageContent />
     </Layout>
   );
 };

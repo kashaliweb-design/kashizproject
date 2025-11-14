@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Layout from '../../components/Layout';
+import PageContent from '../../components/PageContent';
 
 const CSVToJSON: React.FC = () => {
   const [csvData, setCsvData] = useState('');
@@ -163,6 +164,8 @@ Bob Johnson,35,Toronto,Canada`;
           </div>
         </div>
       </div>
+
+        <PageContent />
     </Layout>
   );
 };

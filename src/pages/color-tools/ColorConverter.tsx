@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Layout from '../../components/Layout';
+import PageContent from '../../components/PageContent';
 
 const ColorConverter: React.FC = () => {
   const [inputColor, setInputColor] = useState('#3b82f6');
@@ -217,6 +218,8 @@ const ColorConverter: React.FC = () => {
           </div>
         </div>
       </div>
+
+        <PageContent />
     </Layout>
   );
 };

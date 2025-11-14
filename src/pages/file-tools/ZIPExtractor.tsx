@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Layout from '../../components/Layout';
+import PageContent from '../../components/PageContent';
 import { FileArchive, Download, File } from 'lucide-react';
 
 const ZIPExtractor: React.FC = () => {
@@ -183,6 +184,8 @@ const ZIPExtractor: React.FC = () => {
           </div>
         </div>
       </div>
+
+        <PageContent />
     </Layout>
   );
 };

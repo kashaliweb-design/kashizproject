@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Layout from '../../components/Layout';
+import PageContent from '../../components/PageContent';
 
 const TextSorter: React.FC = () => {
   const [text, setText] = useState('');
@@ -168,6 +169,8 @@ const TextSorter: React.FC = () => {
           </button>
         </div>
       </div>
+
+        <PageContent />
     </Layout>
   );
 };

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Layout from '../../components/Layout';
+import PageContent from '../../components/PageContent';
 
 const ImageSEOAnalyzer: React.FC = () => {
   const [htmlContent, setHtmlContent] = useState('');
@@ -319,6 +320,8 @@ ${analysis.images.map((img: any) =>
           </div>
         </div>
       </div>
+
+        <PageContent />
     </Layout>
   );
 };

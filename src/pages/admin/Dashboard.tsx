@@ -14,9 +14,13 @@ const Dashboard: React.FC = () => {
   const [selectedContentPage, setSelectedContentPage] = useState<string>('');
   const [contentSections, setContentSections] = useState<ContentSection[]>([]);
   const [newSection, setNewSection] = useState({title: '', content: ''});
+  const [editingSection, setEditingSection] = useState<ContentSection | null>(null);
+  const [contentSearchTerm, setContentSearchTerm] = useState('');
   const [selectedFaqPage, setSelectedFaqPage] = useState<string>('');
   const [faqs, setFaqs] = useState<FAQ[]>([]);
   const [newFaq, setNewFaq] = useState({question: '', answer: ''});
+  const [editingFaq, setEditingFaq] = useState<FAQ | null>(null);
+  const [faqSearchTerm, setFaqSearchTerm] = useState('');
 
   useEffect(() => {
     const isAuth = localStorage.getItem('adminAuth');
@@ -118,6 +122,84 @@ const Dashboard: React.FC = () => {
     localStorage.setItem('pagesData', JSON.stringify(updatedPages));
   };
 
+  const handleEditContentSection = (section: ContentSection) => {
+    setEditingSection({ ...section });
+  };
+
+  const handleUpdateContentSection = () => {
+    if (editingSection && editingSection.title && editingSection.content) {
+      const updatedSections = contentSections.map(s => 
+        s.id === editingSection.id ? editingSection : s
+      );
+      setContentSections(updatedSections);
+      
+      const updatedPages = pages.map(p => 
+        p.id === selectedContentPage 
+          ? { ...p, contentSections: updatedSections }
+          : p
+      );
+      setPages(updatedPages);
+      localStorage.setItem('pagesData', JSON.stringify(updatedPages));
+      setEditingSection(null);
+      alert('Content section updated successfully!');
+    }
+  };
+
+  const handleCancelEditSection = () => {
+    setEditingSection(null);
+  };
+
+  const insertFormatting = (format: string, isEditing: boolean = false) => {
+    const textarea = document.getElementById(isEditing ? 'edit-content-textarea' : 'new-content-textarea') as HTMLTextAreaElement;
+    if (!textarea) return;
+
+    const start = textarea.selectionStart;
+    const end = textarea.selectionEnd;
+    const selectedText = textarea.value.substring(start, end);
+    const currentContent = isEditing ? editingSection?.content || '' : newSection.content;
+    
+    let beforeText = currentContent.substring(0, start);
+    let afterText = currentContent.substring(end);
+    let insertText = '';
+
+    switch(format) {
+      case 'h1':
+        insertText = selectedText ? `<h1>${selectedText}</h1>` : '<h1></h1>';
+        break;
+      case 'h2':
+        insertText = selectedText ? `<h2>${selectedText}</h2>` : '<h2></h2>';
+        break;
+      case 'h3':
+        insertText = selectedText ? `<h3>${selectedText}</h3>` : '<h3></h3>';
+        break;
+      case 'bold':
+        insertText = selectedText ? `<strong>${selectedText}</strong>` : '<strong></strong>';
+        break;
+      case 'link':
+        const url = prompt('Enter URL:');
+        if (url) {
+          insertText = selectedText ? `<a href="${url}">${selectedText}</a>` : `<a href="${url}">Link Text</a>`;
+        } else {
+          return;
+        }
+        break;
+    }
+
+    const newContent = beforeText + insertText + afterText;
+    
+    if (isEditing && editingSection) {
+      setEditingSection({ ...editingSection, content: newContent });
+    } else {
+      setNewSection({ ...newSection, content: newContent });
+    }
+
+    setTimeout(() => {
+      textarea.focus();
+      const newCursorPos = start + insertText.length;
+      textarea.setSelectionRange(newCursorPos, newCursorPos);
+    }, 0);
+  };
+
   const handleAddFaq = () => {
     if (newFaq.question && newFaq.answer && selectedFaqPage) {
       const newFaqItem: FAQ = {
@@ -156,6 +238,33 @@ const Dashboard: React.FC = () => {
     );
     setPages(updatedPages);
     localStorage.setItem('pagesData', JSON.stringify(updatedPages));
+  };
+
+  const handleEditFaq = (faq: FAQ) => {
+    setEditingFaq({ ...faq });
+  };
+
+  const handleUpdateFaq = () => {
+    if (editingFaq && editingFaq.question && editingFaq.answer) {
+      const updatedFaqs = faqs.map(f => 
+        f.id === editingFaq.id ? editingFaq : f
+      );
+      setFaqs(updatedFaqs);
+      
+      const updatedPages = pages.map(p => 
+        p.id === selectedFaqPage 
+          ? { ...p, faqs: updatedFaqs }
+          : p
+      );
+      setPages(updatedPages);
+      localStorage.setItem('pagesData', JSON.stringify(updatedPages));
+      setEditingFaq(null);
+      alert('FAQ updated successfully!');
+    }
+  };
+
+  const handleCancelEditFaq = () => {
+    setEditingFaq(null);
   };
 
   const handleLogout = () => {
@@ -363,18 +472,39 @@ const Dashboard: React.FC = () => {
                 <p className="text-sm text-gray-600 mt-1">Select a page and add content sections that will be displayed with beautiful UI cards</p>
               </div>
 
-              <div className="mb-6">
-                <label className="block text-sm font-medium text-gray-700 mb-2">Select Page</label>
-                <select
-                  value={selectedContentPage}
-                  onChange={(e) => setSelectedContentPage(e.target.value)}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500"
-                >
-                  <option value="">-- Select a page --</option>
-                  {pages.map(page => (
-                    <option key={page.id} value={page.id}>{page.name} ({page.category})</option>
-                  ))}
-                </select>
+              <div className="mb-6 space-y-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Search Pages</label>
+                  <div className="relative">
+                    <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                    <input
+                      type="text"
+                      value={contentSearchTerm}
+                      onChange={(e) => setContentSearchTerm(e.target.value)}
+                      placeholder="Search pages by name or category..."
+                      className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500"
+                    />
+                  </div>
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Select Page</label>
+                  <select
+                    value={selectedContentPage}
+                    onChange={(e) => setSelectedContentPage(e.target.value)}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500"
+                  >
+                    <option value="">-- Select a page --</option>
+                    {pages
+                      .filter(page => 
+                        contentSearchTerm === '' || 
+                        page.name.toLowerCase().includes(contentSearchTerm.toLowerCase()) ||
+                        page.category.toLowerCase().includes(contentSearchTerm.toLowerCase())
+                      )
+                      .map(page => (
+                        <option key={page.id} value={page.id}>{page.name} ({page.category})</option>
+                      ))}
+                  </select>
+                </div>
               </div>
 
               {selectedContentPage && (
@@ -397,12 +527,55 @@ const Dashboard: React.FC = () => {
                       </div>
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-2">Content</label>
+                        <div className="mb-2 flex flex-wrap gap-2 p-2 bg-gray-50 rounded-lg border border-gray-200">
+                          <button
+                            type="button"
+                            onClick={() => insertFormatting('h1', false)}
+                            className="px-3 py-1 text-sm font-bold bg-white border border-gray-300 rounded hover:bg-gray-100 transition"
+                            title="Insert H1 heading"
+                          >
+                            H1
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => insertFormatting('h2', false)}
+                            className="px-3 py-1 text-sm font-semibold bg-white border border-gray-300 rounded hover:bg-gray-100 transition"
+                            title="Insert H2 heading"
+                          >
+                            H2
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => insertFormatting('h3', false)}
+                            className="px-3 py-1 text-sm font-medium bg-white border border-gray-300 rounded hover:bg-gray-100 transition"
+                            title="Insert H3 heading"
+                          >
+                            H3
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => insertFormatting('bold', false)}
+                            className="px-3 py-1 text-sm font-bold bg-white border border-gray-300 rounded hover:bg-gray-100 transition"
+                            title="Make text bold"
+                          >
+                            <strong>B</strong>
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => insertFormatting('link', false)}
+                            className="px-3 py-1 text-sm bg-white border border-gray-300 rounded hover:bg-gray-100 transition"
+                            title="Insert link"
+                          >
+                            🔗 Link
+                          </button>
+                        </div>
                         <textarea
+                          id="new-content-textarea"
                           value={newSection.content}
                           onChange={(e) => setNewSection({...newSection, content: e.target.value})}
-                          rows={6}
-                          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500"
-                          placeholder="Write your content here..."
+                          rows={8}
+                          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 font-mono text-sm"
+                          placeholder="Write your content here... Use the buttons above to add HTML formatting."
                         />
                       </div>
                       <button
@@ -426,23 +599,111 @@ const Dashboard: React.FC = () => {
                       <div className="space-y-4">
                         {contentSections.map((section) => (
                           <div key={section.id} className="p-5 bg-gradient-to-r from-white to-gray-50 rounded-lg border border-gray-200 hover:border-indigo-300 transition shadow-sm">
-                            <div className="flex items-start justify-between gap-4">
-                              <div className="flex-1">
-                                <h4 className="text-lg font-semibold text-gray-900 mb-2">
-                                  {section.title}
-                                </h4>
-                                <p className="text-gray-700 leading-relaxed whitespace-pre-wrap">
-                                  {section.content}
-                                </p>
+                            {editingSection?.id === section.id ? (
+                              <div className="space-y-4">
+                                <div>
+                                  <label className="block text-sm font-medium text-gray-700 mb-2">Section Title</label>
+                                  <input
+                                    type="text"
+                                    value={editingSection.title}
+                                    onChange={(e) => setEditingSection({...editingSection, title: e.target.value})}
+                                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500"
+                                  />
+                                </div>
+                                <div>
+                                  <label className="block text-sm font-medium text-gray-700 mb-2">Content</label>
+                                  <div className="mb-2 flex flex-wrap gap-2 p-2 bg-gray-50 rounded-lg border border-gray-200">
+                                    <button
+                                      type="button"
+                                      onClick={() => insertFormatting('h1', true)}
+                                      className="px-3 py-1 text-sm font-bold bg-white border border-gray-300 rounded hover:bg-gray-100 transition"
+                                      title="Insert H1 heading"
+                                    >
+                                      H1
+                                    </button>
+                                    <button
+                                      type="button"
+                                      onClick={() => insertFormatting('h2', true)}
+                                      className="px-3 py-1 text-sm font-semibold bg-white border border-gray-300 rounded hover:bg-gray-100 transition"
+                                      title="Insert H2 heading"
+                                    >
+                                      H2
+                                    </button>
+                                    <button
+                                      type="button"
+                                      onClick={() => insertFormatting('h3', true)}
+                                      className="px-3 py-1 text-sm font-medium bg-white border border-gray-300 rounded hover:bg-gray-100 transition"
+                                      title="Insert H3 heading"
+                                    >
+                                      H3
+                                    </button>
+                                    <button
+                                      type="button"
+                                      onClick={() => insertFormatting('bold', true)}
+                                      className="px-3 py-1 text-sm font-bold bg-white border border-gray-300 rounded hover:bg-gray-100 transition"
+                                      title="Make text bold"
+                                    >
+                                      <strong>B</strong>
+                                    </button>
+                                    <button
+                                      type="button"
+                                      onClick={() => insertFormatting('link', true)}
+                                      className="px-3 py-1 text-sm bg-white border border-gray-300 rounded hover:bg-gray-100 transition"
+                                      title="Insert link"
+                                    >
+                                      🔗 Link
+                                    </button>
+                                  </div>
+                                  <textarea
+                                    id="edit-content-textarea"
+                                    value={editingSection.content}
+                                    onChange={(e) => setEditingSection({...editingSection, content: e.target.value})}
+                                    rows={8}
+                                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 font-mono text-sm"
+                                  />
+                                </div>
+                                <div className="flex gap-2">
+                                  <button
+                                    onClick={handleUpdateContentSection}
+                                    className="flex items-center gap-2 px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg transition"
+                                  >
+                                    <Save className="w-4 h-4" />
+                                    Save Changes
+                                  </button>
+                                  <button
+                                    onClick={handleCancelEditSection}
+                                    className="px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-800 rounded-lg transition"
+                                  >
+                                    Cancel
+                                  </button>
+                                </div>
                               </div>
-                              <button
-                                onClick={() => handleDeleteContentSection(section.id)}
-                                className="p-2 text-red-600 hover:bg-red-50 rounded-lg transition"
-                                title="Delete Section"
-                              >
-                                <Trash2 className="w-5 h-5" />
-                              </button>
-                            </div>
+                            ) : (
+                              <div className="flex items-start justify-between gap-4">
+                                <div className="flex-1">
+                                  <h4 className="text-lg font-semibold text-gray-900 mb-2">
+                                    {section.title}
+                                  </h4>
+                                  <div className="text-gray-700 leading-relaxed" dangerouslySetInnerHTML={{ __html: section.content }} />
+                                </div>
+                                <div className="flex gap-2">
+                                  <button
+                                    onClick={() => handleEditContentSection(section)}
+                                    className="p-2 text-indigo-600 hover:bg-indigo-50 rounded-lg transition"
+                                    title="Edit Section"
+                                  >
+                                    <Edit className="w-5 h-5" />
+                                  </button>
+                                  <button
+                                    onClick={() => handleDeleteContentSection(section.id)}
+                                    className="p-2 text-red-600 hover:bg-red-50 rounded-lg transition"
+                                    title="Delete Section"
+                                  >
+                                    <Trash2 className="w-5 h-5" />
+                                  </button>
+                                </div>
+                              </div>
+                            )}
                           </div>
                         ))}
                       </div>
@@ -480,18 +741,39 @@ const Dashboard: React.FC = () => {
                 <p className="text-sm text-gray-600 mt-1">Select a page and add FAQs specific to that page</p>
               </div>
 
-              <div className="mb-6">
-                <label className="block text-sm font-medium text-gray-700 mb-2">Select Page for FAQs</label>
-                <select
-                  value={selectedFaqPage}
-                  onChange={(e) => setSelectedFaqPage(e.target.value)}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500"
-                >
-                  <option value="">-- Select a page --</option>
-                  {pages.map(page => (
-                    <option key={page.id} value={page.id}>{page.name} ({page.category})</option>
-                  ))}
-                </select>
+              <div className="mb-6 space-y-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Search Pages</label>
+                  <div className="relative">
+                    <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                    <input
+                      type="text"
+                      value={faqSearchTerm}
+                      onChange={(e) => setFaqSearchTerm(e.target.value)}
+                      placeholder="Search pages by name or category..."
+                      className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500"
+                    />
+                  </div>
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Select Page for FAQs</label>
+                  <select
+                    value={selectedFaqPage}
+                    onChange={(e) => setSelectedFaqPage(e.target.value)}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500"
+                  >
+                    <option value="">-- Select a page --</option>
+                    {pages
+                      .filter(page => 
+                        faqSearchTerm === '' || 
+                        page.name.toLowerCase().includes(faqSearchTerm.toLowerCase()) ||
+                        page.category.toLowerCase().includes(faqSearchTerm.toLowerCase())
+                      )
+                      .map(page => (
+                        <option key={page.id} value={page.id}>{page.name} ({page.category})</option>
+                      ))}
+                  </select>
+                </div>
               </div>
 
               {selectedFaqPage && (
@@ -543,24 +825,71 @@ const Dashboard: React.FC = () => {
                       <div className="space-y-4">
                         {faqs.map((faq) => (
                           <div key={faq.id} className="p-5 bg-gradient-to-r from-white to-purple-50 rounded-lg border border-purple-200 hover:border-purple-400 transition shadow-sm">
-                            <div className="flex items-start justify-between gap-4">
-                              <div className="flex-1">
-                                <h4 className="text-lg font-semibold text-gray-900 mb-2 flex items-center gap-2">
-                                  <HelpCircle className="w-5 h-5 text-purple-600" />
-                                  {faq.question}
-                                </h4>
-                                <p className="text-gray-700 leading-relaxed pl-7">
-                                  {faq.answer}
-                                </p>
+                            {editingFaq?.id === faq.id ? (
+                              <div className="space-y-4">
+                                <div>
+                                  <label className="block text-sm font-medium text-gray-700 mb-2">Question</label>
+                                  <input
+                                    type="text"
+                                    value={editingFaq.question}
+                                    onChange={(e) => setEditingFaq({...editingFaq, question: e.target.value})}
+                                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500"
+                                  />
+                                </div>
+                                <div>
+                                  <label className="block text-sm font-medium text-gray-700 mb-2">Answer</label>
+                                  <textarea
+                                    value={editingFaq.answer}
+                                    onChange={(e) => setEditingFaq({...editingFaq, answer: e.target.value})}
+                                    rows={4}
+                                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500"
+                                  />
+                                </div>
+                                <div className="flex gap-2">
+                                  <button
+                                    onClick={handleUpdateFaq}
+                                    className="flex items-center gap-2 px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg transition"
+                                  >
+                                    <Save className="w-4 h-4" />
+                                    Save Changes
+                                  </button>
+                                  <button
+                                    onClick={handleCancelEditFaq}
+                                    className="px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-800 rounded-lg transition"
+                                  >
+                                    Cancel
+                                  </button>
+                                </div>
                               </div>
-                              <button
-                                onClick={() => handleDeleteFaq(faq.id)}
-                                className="p-2 text-red-600 hover:bg-red-50 rounded-lg transition"
-                                title="Delete FAQ"
-                              >
-                                <Trash2 className="w-5 h-5" />
-                              </button>
-                            </div>
+                            ) : (
+                              <div className="flex items-start justify-between gap-4">
+                                <div className="flex-1">
+                                  <h4 className="text-lg font-semibold text-gray-900 mb-2 flex items-center gap-2">
+                                    <HelpCircle className="w-5 h-5 text-purple-600" />
+                                    {faq.question}
+                                  </h4>
+                                  <p className="text-gray-700 leading-relaxed pl-7">
+                                    {faq.answer}
+                                  </p>
+                                </div>
+                                <div className="flex gap-2">
+                                  <button
+                                    onClick={() => handleEditFaq(faq)}
+                                    className="p-2 text-purple-600 hover:bg-purple-50 rounded-lg transition"
+                                    title="Edit FAQ"
+                                  >
+                                    <Edit className="w-5 h-5" />
+                                  </button>
+                                  <button
+                                    onClick={() => handleDeleteFaq(faq.id)}
+                                    className="p-2 text-red-600 hover:bg-red-50 rounded-lg transition"
+                                    title="Delete FAQ"
+                                  >
+                                    <Trash2 className="w-5 h-5" />
+                                  </button>
+                                </div>
+                              </div>
+                            )}
                           </div>
                         ))}
                       </div>
@@ -589,14 +918,30 @@ const Dashboard: React.FC = () => {
                   <Globe className="w-5 h-5" />
                   Basic Information
                 </h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Page Name</label>
-                    <input type="text" value={selectedPage.name} onChange={(e) => setSelectedPage({ ...selectedPage, name: e.target.value })} className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500" />
+                <div className="space-y-4">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">Page Name</label>
+                      <input type="text" value={selectedPage.name} onChange={(e) => setSelectedPage({ ...selectedPage, name: e.target.value })} className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500" />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">Category</label>
+                      <input type="text" value={selectedPage.category} onChange={(e) => setSelectedPage({ ...selectedPage, category: e.target.value })} className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500" />
+                    </div>
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Category</label>
-                    <input type="text" value={selectedPage.category} onChange={(e) => setSelectedPage({ ...selectedPage, category: e.target.value })} className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500" />
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Page URL Path (Slug)
+                      <span className="text-xs text-gray-500 ml-2">Example: /text-tools/word-counter</span>
+                    </label>
+                    <input 
+                      type="text" 
+                      value={selectedPage.path} 
+                      onChange={(e) => setSelectedPage({ ...selectedPage, path: e.target.value })} 
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 font-mono text-sm"
+                      placeholder="/category/page-name"
+                    />
+                    <p className="text-xs text-gray-500 mt-1">⚠️ Changing this will change the page URL. Make sure it starts with /</p>
                   </div>
                 </div>
               </div>

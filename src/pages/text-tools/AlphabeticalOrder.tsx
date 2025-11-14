@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Layout from '../../components/Layout';
+import PageContent from '../../components/PageContent';
 
 const AlphabeticalOrder: React.FC = () => {
   const [text, setText] = useState('');
@@ -157,6 +158,8 @@ const AlphabeticalOrder: React.FC = () => {
           </button>
         </div>
       </div>
+
+        <PageContent />
     </Layout>
   );
 };

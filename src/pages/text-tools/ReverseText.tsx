@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Layout from '../../components/Layout';
+import PageContent from '../../components/PageContent';
 
 const ReverseText: React.FC = () => {
   const [text, setText] = useState('');
@@ -110,6 +111,8 @@ const ReverseText: React.FC = () => {
           })}
         </div>
       </div>
+
+        <PageContent />
     </Layout>
   );
 };

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Layout from '../../components/Layout';
+import PageContent from '../../components/PageContent';
 
 const AreaCalculator: React.FC = () => {
   const [shape, setShape] = useState('rectangle');
@@ -271,6 +272,8 @@ const AreaCalculator: React.FC = () => {
           </div>
         </div>
       </div>
+
+        <PageContent />
     </Layout>
   );
 };

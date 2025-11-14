@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Layout from '../../components/Layout';
+import PageContent from '../../components/PageContent';
 
 const ParagraphCounter: React.FC = () => {
   const [text, setText] = useState('');
@@ -86,6 +87,8 @@ const ParagraphCounter: React.FC = () => {
           </div>
         </div>
       </div>
+
+        <PageContent />
     </Layout>
   );
 };

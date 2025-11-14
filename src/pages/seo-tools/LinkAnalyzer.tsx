@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Layout from '../../components/Layout';
+import PageContent from '../../components/PageContent';
 
 const LinkAnalyzer: React.FC = () => {
   const [htmlContent, setHtmlContent] = useState('');
@@ -327,6 +328,8 @@ ${analysis.links.map((link: any) =>
           </div>
         </div>
       </div>
+
+        <PageContent />
     </Layout>
   );
 };
