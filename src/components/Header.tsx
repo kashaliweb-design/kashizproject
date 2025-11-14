@@ -199,11 +199,11 @@ const Header: React.FC = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3">
-            <div className="bg-gradient-to-r from-blue-500 to-cyan-600 p-2 rounded-lg">
+            <div className="bg-gradient-to-r from-emerald-500 to-teal-600 p-2 rounded-lg">
               <Menu className="text-white" size={24} />
             </div>
             <div>
-              <h1 className="text-2xl font-bold text-white">Toolify</h1>
+              <h1 className="text-2xl font-bold text-white">Toolistan</h1>
               <p className="text-white/60 text-xs">All-in-One Tool Collection</p>
             </div>
           </Link>

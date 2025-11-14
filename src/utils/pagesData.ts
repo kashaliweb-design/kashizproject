@@ -1,3 +1,18 @@
+export interface ContentSection {
+  id: string;
+  title: string;
+  content: string;
+  order: number;
+}
+
+export interface FAQ {
+  id: string;
+  question: string;
+  answer: string;
+  pageId: string;
+  order: number;
+}
+
 export interface PageData {
   id: string;
   name: string;
@@ -11,6 +26,8 @@ export interface PageData {
     ogTitle: string;
     ogDescription: string;
   };
+  contentSections?: ContentSection[];
+  faqs?: FAQ[];
 }
 
 export const getDefaultSEO = (pageName: string) => ({

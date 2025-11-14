@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Layout from '../../components/Layout';
+import PageContent from '../../components/PageContent';
 
 const WordCounter: React.FC = () => {
   const [text, setText] = useState('');
@@ -78,6 +79,8 @@ const WordCounter: React.FC = () => {
             <div className="text-white/70 text-xs sm:text-sm">Paragraphs</div>
           </div>
         </div>
+
+        <PageContent />
       </div>
     </Layout>
   );
