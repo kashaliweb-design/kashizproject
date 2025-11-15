@@ -1,6 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import Layout from '../../components/Layout';
 import PageContent from '../../components/PageContent';
+
+const stopWords = [
+  'a', 'an', 'and', 'are', 'as', 'at', 'be', 'by', 'for', 'from', 'has', 'he', 'in', 'is', 'it',
+  'its', 'of', 'on', 'that', 'the', 'to', 'was', 'will', 'with', 'the', 'this', 'but', 'they',
+  'have', 'had', 'what', 'said', 'each', 'which', 'she', 'do', 'how', 'their', 'if', 'up', 'out',
+  'many', 'then', 'them', 'these', 'so', 'some', 'her', 'would', 'make', 'like', 'into', 'him',
+  'time', 'two', 'more', 'go', 'no', 'way', 'could', 'my', 'than', 'first', 'been', 'call', 'who',
+  'oil', 'sit', 'now', 'find', 'down', 'day', 'did', 'get', 'come', 'made', 'may', 'part'
+];
 
 const URLSlugGenerator: React.FC = () => {
   const [title, setTitle] = useState('');
@@ -11,16 +20,7 @@ const URLSlugGenerator: React.FC = () => {
     maxLength: 50
   });
 
-  const stopWords = [
-    'a', 'an', 'and', 'are', 'as', 'at', 'be', 'by', 'for', 'from', 'has', 'he', 'in', 'is', 'it',
-    'its', 'of', 'on', 'that', 'the', 'to', 'was', 'will', 'with', 'the', 'this', 'but', 'they',
-    'have', 'had', 'what', 'said', 'each', 'which', 'she', 'do', 'how', 'their', 'if', 'up', 'out',
-    'many', 'then', 'them', 'these', 'so', 'some', 'her', 'would', 'make', 'like', 'into', 'him',
-    'time', 'two', 'more', 'go', 'no', 'way', 'could', 'my', 'than', 'first', 'been', 'call', 'who',
-    'oil', 'sit', 'now', 'find', 'down', 'day', 'did', 'get', 'come', 'made', 'may', 'part'
-  ];
-
-  const generateSlug = (inputTitle: string) => {
+  const generateSlug = useCallback((inputTitle: string) => {
     let processedTitle = inputTitle.trim();
     
     if (options.lowercase) {
@@ -46,12 +46,19 @@ const URLSlugGenerator: React.FC = () => {
     }
     
     return slugResult;
-  };
+  }, [options]);
 
   const handleTitleChange = (value: string) => {
     setTitle(value);
     setSlug(generateSlug(value));
   };
+
+  // Update slug when options change
+  useEffect(() => {
+    if (title) {
+      setSlug(generateSlug(title));
+    }
+  }, [options, title, generateSlug]);
 
   const copyToClipboard = () => {
     navigator.clipboard.writeText(slug);
@@ -97,11 +104,7 @@ const URLSlugGenerator: React.FC = () => {
                   <input
                     type="checkbox"
                     checked={options.lowercase}
-                    onChange={(e) => {
-                      const newOptions = {...options, lowercase: e.target.checked};
-                      setOptions(newOptions);
-                      setSlug(generateSlug(title));
-                    }}
+                    onChange={(e) => setOptions({...options, lowercase: e.target.checked})}
                     className="rounded"
                   />
                   <span className="text-white/70 text-sm">Convert to lowercase</span>
@@ -111,11 +114,7 @@ const URLSlugGenerator: React.FC = () => {
                   <input
                     type="checkbox"
                     checked={options.removeStopWords}
-                    onChange={(e) => {
-                      const newOptions = {...options, removeStopWords: e.target.checked};
-                      setOptions(newOptions);
-                      setSlug(generateSlug(title));
-                    }}
+                    onChange={(e) => setOptions({...options, removeStopWords: e.target.checked})}
                     className="rounded"
                   />
                   <span className="text-white/70 text-sm">Remove stop words</span>
@@ -130,11 +129,7 @@ const URLSlugGenerator: React.FC = () => {
                     min="20"
                     max="100"
                     value={options.maxLength}
-                    onChange={(e) => {
-                      const newOptions = {...options, maxLength: parseInt(e.target.value)};
-                      setOptions(newOptions);
-                      setSlug(generateSlug(title));
-                    }}
+                    onChange={(e) => setOptions({...options, maxLength: parseInt(e.target.value)})}
                     className="w-full"
                   />
                 </div>

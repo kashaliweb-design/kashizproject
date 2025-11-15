@@ -61,7 +61,7 @@ const Home = () => {
   ];
 
   return (
-    <Layout title="Toolify - Free Online Tools">
+    <Layout title="Toolistan - Free Online Tools">
       <div className="min-h-screen">
         {/* Admin Button - Fixed Position */}
         <button
@@ -79,7 +79,7 @@ const Home = () => {
         <section className="text-center py-10 sm:py-16 lg:py-20 px-4">
           <div className="max-w-4xl mx-auto">
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4 sm:mb-6 bg-gradient-to-r from-blue-400 via-cyan-500 to-teal-500 bg-clip-text text-transparent">
-              Toolify
+              Toolistan
             </h1>
             <p className="text-lg sm:text-xl md:text-2xl text-white/80 mb-6 sm:mb-8 leading-relaxed px-2">
               Your ultimate collection of free online tools for productivity, creativity, and development

@@ -5,6 +5,8 @@ import { Menu, X, Home, Calculator, Type, ArrowRightLeft, ChevronDown, Palette, 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeMegaMenu, setActiveMegaMenu] = useState<string | null>(null);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [showSearchResults, setShowSearchResults] = useState(false);
 
   React.useEffect(() => {
     if (isMenuOpen) {
@@ -193,6 +195,30 @@ const Header: React.FC = () => {
     }
   };
 
+  // Search functionality
+  const getAllTools = () => {
+    const allTools: Array<{ name: string; path: string; category: string }> = [];
+    Object.entries(toolCategories).forEach(([, category]) => {
+      category.tools.forEach(tool => {
+        allTools.push({
+          ...tool,
+          category: category.title
+        });
+      });
+    });
+    return allTools;
+  };
+
+  const searchResults = searchQuery.trim() === '' ? [] : getAllTools().filter(tool =>
+    tool.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    tool.category.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
+  const handleSearchClick = () => {
+    setSearchQuery('');
+    setShowSearchResults(false);
+  };
+
   return (
     <header className="backdrop-blur-md bg-black/30 border-b border-white/10 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 py-4">
@@ -271,6 +297,55 @@ const Header: React.FC = () => {
             </div>
           </nav>
 
+          {/* Search Bar */}
+          <div className="hidden md:flex items-center gap-3 relative">
+            <div className="relative">
+              <div className="relative">
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-white/50" size={18} />
+                <input
+                  type="text"
+                  value={searchQuery}
+                  onChange={(e) => {
+                    setSearchQuery(e.target.value);
+                    setShowSearchResults(true);
+                  }}
+                  onFocus={() => setShowSearchResults(true)}
+                  onBlur={() => setTimeout(() => setShowSearchResults(false), 200)}
+                  placeholder="Search tools..."
+                  className="w-64 pl-10 pr-4 py-2 backdrop-blur-md bg-white/10 border border-white/20 rounded-lg text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-transparent"
+                />
+              </div>
+
+              {/* Search Results Dropdown */}
+              {showSearchResults && searchQuery.trim() !== '' && (
+                <div className="absolute top-full mt-2 w-96 max-h-96 overflow-y-auto backdrop-blur-md bg-black/95 border border-white/20 rounded-xl shadow-2xl z-50">
+                  {searchResults.length > 0 ? (
+                    <div className="p-2">
+                      <div className="text-white/50 text-xs px-3 py-2">
+                        Found {searchResults.length} tool{searchResults.length !== 1 ? 's' : ''}
+                      </div>
+                      {searchResults.map((tool, index) => (
+                        <Link
+                          key={index}
+                          to={tool.path}
+                          onClick={handleSearchClick}
+                          className="block px-3 py-2 hover:bg-white/10 rounded-lg transition-colors"
+                        >
+                          <div className="text-white font-medium text-sm">{tool.name}</div>
+                          <div className="text-white/50 text-xs">{tool.category}</div>
+                        </Link>
+                      ))}
+                    </div>
+                  ) : (
+                    <div className="p-4 text-center text-white/50 text-sm">
+                      No tools found for "{searchQuery}"
+                    </div>
+                  )}
+                </div>
+              )}
+            </div>
+          </div>
+
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -300,6 +375,20 @@ const Header: React.FC = () => {
                   </button>
                 </div>
 
+                {/* Mobile Search Bar */}
+                <div className="mb-4">
+                  <div className="relative">
+                    <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-white/50" size={18} />
+                    <input
+                      type="text"
+                      value={searchQuery}
+                      onChange={(e) => setSearchQuery(e.target.value)}
+                      placeholder="Search tools..."
+                      className="w-full pl-10 pr-4 py-2.5 backdrop-blur-md bg-white/10 border border-white/20 rounded-lg text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
+                    />
+                  </div>
+                </div>
+
                 {/* Home Link */}
                 <Link
                   to="/"
@@ -315,6 +404,17 @@ const Header: React.FC = () => {
                   {Object.entries(toolCategories).map(([key, category]) => {
                     const IconComponent = category.icon;
                     const [isExpanded, setIsExpanded] = useState(false);
+                    
+                    // Filter tools based on search query
+                    const filteredTools = searchQuery.trim() === '' 
+                      ? category.tools 
+                      : category.tools.filter(tool => 
+                          tool.name.toLowerCase().includes(searchQuery.toLowerCase())
+                        );
+                    
+                    // Hide category if no tools match
+                    if (filteredTools.length === 0) return null;
+                    
                     return (
                       <div key={key} className="backdrop-blur-sm bg-white/5 rounded-lg p-3 border border-white/10">
                         <button
@@ -326,13 +426,13 @@ const Header: React.FC = () => {
                             <span className="text-sm">{category.title}</span>
                           </div>
                           <div className="flex items-center gap-2">
-                            <span className="text-white/50 text-xs">({category.tools.length})</span>
+                            <span className="text-white/50 text-xs">({filteredTools.length})</span>
                             <ChevronDown size={16} className={`transition-transform ${isExpanded ? 'rotate-180' : ''}`} />
                           </div>
                         </button>
                         {isExpanded && (
                           <div className="mt-2 pt-2 border-t border-white/10 space-y-0.5">
-                            {category.tools.map((tool, index) => (
+                            {filteredTools.map((tool, index) => (
                               <Link
                                 key={index}
                                 to={tool.path}

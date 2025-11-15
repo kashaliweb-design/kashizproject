@@ -47,8 +47,8 @@ const SocialMediaPreview: React.FC = () => {
       description: 'Discover powerful SEO tools to optimize your website, analyze keywords, check backlinks, and improve search engine rankings. Free online SEO toolkit.',
       image: 'https://images.pexels.com/photos/270637/pexels-photo-270637.jpeg?auto=compress&cs=tinysrgb&w=1200&h=630&fit=crop',
       url: 'https://yoursite.com/seo-tools',
-      siteName: 'Toolify',
-      twitterHandle: '@toolify'
+      siteName: 'Toolistan',
+      twitterHandle: '@toolistan'
     });
   };
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { useLocation } from 'react-router-dom';
 import { FileText, HelpCircle, ChevronDown, ChevronUp } from 'lucide-react';
 import { PageData, ContentSection, FAQ } from '../utils/pagesData';
@@ -8,20 +8,41 @@ const PageContent: React.FC = () => {
   const [pageData, setPageData] = useState<PageData | null>(null);
   const [expandedFaq, setExpandedFaq] = useState<string | null>(null);
 
-  useEffect(() => {
-    loadPageData();
-  }, [location.pathname]);
-
-  const loadPageData = () => {
+  const loadPageData = useCallback(() => {
     const savedData = localStorage.getItem('pagesData');
     if (savedData) {
       const pagesData: PageData[] = JSON.parse(savedData);
       const currentPage = pagesData.find(p => p.path === location.pathname);
-      if (currentPage) {
-        setPageData(currentPage);
-      }
+      setPageData(currentPage || null);
+    } else {
+      setPageData(null);
     }
-  };
+  }, [location.pathname]);
+
+  useEffect(() => {
+    loadPageData();
+    
+    // Listen for storage changes (when admin updates content)
+    const handleStorageChange = (e: StorageEvent) => {
+      if (e.key === 'pagesData') {
+        loadPageData();
+      }
+    };
+    
+    window.addEventListener('storage', handleStorageChange);
+    
+    // Also listen for custom event for same-window updates
+    const handleCustomUpdate = () => {
+      loadPageData();
+    };
+    
+    window.addEventListener('pagesDataUpdated', handleCustomUpdate);
+    
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+      window.removeEventListener('pagesDataUpdated', handleCustomUpdate);
+    };
+  }, [loadPageData]);
 
   if (!pageData || (!pageData.contentSections?.length && !pageData.faqs?.length)) {
     return null;

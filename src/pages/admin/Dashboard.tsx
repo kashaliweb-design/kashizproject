@@ -83,6 +83,13 @@ const Dashboard: React.FC = () => {
     }
   };
 
+  const updatePagesData = (updatedPages: PageData[]) => {
+    setPages(updatedPages);
+    localStorage.setItem('pagesData', JSON.stringify(updatedPages));
+    // Dispatch custom event to notify other components
+    window.dispatchEvent(new Event('pagesDataUpdated'));
+  };
+
   const handleAddContentSection = () => {
     if (newSection.title && newSection.content && selectedContentPage) {
       const newContentSection: ContentSection = {
@@ -100,8 +107,7 @@ const Dashboard: React.FC = () => {
           ? { ...p, contentSections: updatedSections }
           : p
       );
-      setPages(updatedPages);
-      localStorage.setItem('pagesData', JSON.stringify(updatedPages));
+      updatePagesData(updatedPages);
       setNewSection({title: '', content: ''});
       alert('Content section added successfully!');
     } else {
@@ -118,8 +124,7 @@ const Dashboard: React.FC = () => {
         ? { ...p, contentSections: updatedSections }
         : p
     );
-    setPages(updatedPages);
-    localStorage.setItem('pagesData', JSON.stringify(updatedPages));
+    updatePagesData(updatedPages);
   };
 
   const handleEditContentSection = (section: ContentSection) => {
@@ -138,8 +143,7 @@ const Dashboard: React.FC = () => {
           ? { ...p, contentSections: updatedSections }
           : p
       );
-      setPages(updatedPages);
-      localStorage.setItem('pagesData', JSON.stringify(updatedPages));
+      updatePagesData(updatedPages);
       setEditingSection(null);
       alert('Content section updated successfully!');
     }
@@ -218,8 +222,7 @@ const Dashboard: React.FC = () => {
           ? { ...p, faqs: updatedFaqs }
           : p
       );
-      setPages(updatedPages);
-      localStorage.setItem('pagesData', JSON.stringify(updatedPages));
+      updatePagesData(updatedPages);
       setNewFaq({question: '', answer: ''});
       alert('FAQ added successfully!');
     } else {
@@ -236,8 +239,7 @@ const Dashboard: React.FC = () => {
         ? { ...p, faqs: updatedFaqs }
         : p
     );
-    setPages(updatedPages);
-    localStorage.setItem('pagesData', JSON.stringify(updatedPages));
+    updatePagesData(updatedPages);
   };
 
   const handleEditFaq = (faq: FAQ) => {
@@ -256,8 +258,7 @@ const Dashboard: React.FC = () => {
           ? { ...p, faqs: updatedFaqs }
           : p
       );
-      setPages(updatedPages);
-      localStorage.setItem('pagesData', JSON.stringify(updatedPages));
+      updatePagesData(updatedPages);
       setEditingFaq(null);
       alert('FAQ updated successfully!');
     }
@@ -281,8 +282,7 @@ const Dashboard: React.FC = () => {
   const handleSavePage = () => {
     if (selectedPage) {
       const updatedPages = pages.map(p => p.id === selectedPage.id ? selectedPage : p);
-      setPages(updatedPages);
-      localStorage.setItem('pagesData', JSON.stringify(updatedPages));
+      updatePagesData(updatedPages);
       setEditMode(false);
       setSelectedPage(null);
     }

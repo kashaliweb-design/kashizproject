@@ -14,7 +14,7 @@ const Footer: React.FC = () => {
                 <Menu className="text-white" size={20} />
               </div>
               <div>
-                <h3 className="text-xl font-bold text-white">Toolify</h3>
+                <h3 className="text-xl font-bold text-white">Toolistan</h3>
                 <p className="text-white/60 text-sm">All-in-One Tools</p>
               </div>
             </div>
@@ -138,10 +138,10 @@ const Footer: React.FC = () => {
             <div className="flex items-center gap-2 text-white/70 text-sm">
               <span>Made with</span>
               <Heart className="text-red-500 fill-current" size={16} />
-              <span>by Toolify Team</span>
+              <span>by Toolistan Team</span>
             </div>
             <div className="text-white/60 text-sm text-center">
-              © 2025 Toolify. All rights reserved.
+              © 2025 Toolistan. All rights reserved.
             </div>
           </div>
         </div>
