@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
+import { initializePageContent } from './utils/initializeContent';
+import { initialPagesData } from './utils/pagesData';
 
 // Text Tools
 import WordCounter from './pages/text-tools/WordCounter';
@@ -101,6 +103,17 @@ import AdminLogin from './pages/admin/Login';
 import AdminDashboard from './pages/admin/Dashboard';
 
 function App() {
+  useEffect(() => {
+    // Initialize pages data if not exists
+    const savedData = localStorage.getItem('pagesData');
+    if (!savedData) {
+      localStorage.setItem('pagesData', JSON.stringify(initialPagesData));
+    }
+    
+    // Initialize content for all pages
+    initializePageContent();
+  }, []);
+
   return (
     <Router>
       <div className="min-h-screen bg-dark-gradient font-poppins">

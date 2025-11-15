@@ -83,6 +83,25 @@ const Dashboard: React.FC = () => {
     }
   };
 
+  const generateSlugFromTitle = (title: string): string => {
+    return title
+      .toLowerCase()
+      .trim()
+      .replace(/[^\w\s-]/g, '') // Remove special characters
+      .replace(/\s+/g, '-') // Replace spaces with hyphens
+      .replace(/-+/g, '-') // Replace multiple hyphens with single
+      .replace(/^-|-$/g, ''); // Remove leading/trailing hyphens
+  };
+
+  const handleGenerateSlug = () => {
+    if (selectedPage) {
+      const slug = generateSlugFromTitle(selectedPage.name);
+      const category = selectedPage.category.toLowerCase().replace(/\s+/g, '-');
+      const newPath = `/${category}/${slug}`;
+      setSelectedPage({ ...selectedPage, path: newPath });
+    }
+  };
+
   const updatePagesData = (updatedPages: PageData[]) => {
     setPages(updatedPages);
     localStorage.setItem('pagesData', JSON.stringify(updatedPages));
@@ -934,14 +953,25 @@ const Dashboard: React.FC = () => {
                       Page URL Path (Slug)
                       <span className="text-xs text-gray-500 ml-2">Example: /text-tools/word-counter</span>
                     </label>
-                    <input 
-                      type="text" 
-                      value={selectedPage.path} 
-                      onChange={(e) => setSelectedPage({ ...selectedPage, path: e.target.value })} 
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 font-mono text-sm"
-                      placeholder="/category/page-name"
-                    />
-                    <p className="text-xs text-gray-500 mt-1">⚠️ Changing this will change the page URL. Make sure it starts with /</p>
+                    <div className="flex gap-2">
+                      <input 
+                        type="text" 
+                        value={selectedPage.path} 
+                        onChange={(e) => setSelectedPage({ ...selectedPage, path: e.target.value })} 
+                        className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 font-mono text-sm"
+                        placeholder="/category/page-name"
+                      />
+                      <button
+                        onClick={handleGenerateSlug}
+                        type="button"
+                        className="px-4 py-2 bg-cyan-600 hover:bg-cyan-700 text-white rounded-lg transition flex items-center gap-2 whitespace-nowrap"
+                        title="Generate SEO-friendly URL slug from page name"
+                      >
+                        <Tag className="w-4 h-4" />
+                        Generate Slug
+                      </button>
+                    </div>
+                    <p className="text-xs text-gray-500 mt-1">⚠️ Changing this will change the page URL. Click "Generate Slug" to auto-create SEO-friendly URL.</p>
                   </div>
                 </div>
               </div>
