@@ -312,6 +312,89 @@ const Dashboard: React.FC = () => {
     setSelectedPage(null);
   };
 
+  const handleInitializeAllContent = () => {
+    if (confirm('This will add default content and FAQs to all pages that don\'t have them. Continue?')) {
+      const updatedPages = pages.map(page => {
+        // Only add content if page doesn't have any
+        if (!page.contentSections || page.contentSections.length === 0) {
+          page.contentSections = [
+            {
+              id: `${page.id}-1`,
+              title: `What is ${page.name}?`,
+              content: `The ${page.name} tool on Toolistan is a powerful, free online utility designed to help you with ${page.name.toLowerCase()} tasks. Whether you're a professional, student, content creator, or casual user, our ${page.name} provides instant, accurate results without requiring any registration, downloads, or installations. This browser-based tool ensures complete privacy and security while delivering lightning-fast performance. With an intuitive interface and comprehensive features, our ${page.name} streamlines your workflow and enhances productivity. At Toolistan, we believe in providing professional-grade tools that are accessible to everyone, completely free of charge.`,
+              order: 1
+            },
+            {
+              id: `${page.id}-2`,
+              title: `Key Features and Benefits`,
+              content: `Our ${page.name} tool comes packed with powerful features designed to enhance your experience. The tool offers real-time processing that delivers instant results, an intuitive user-friendly interface accessible to all skill levels, full mobile compatibility across all devices, no registration requirements, secure browser-based processing for complete privacy, support for various input formats, and optimization for speed and efficiency. Best of all, it's completely free to use with no hidden costs, limitations, or premium features locked behind paywalls. Experience professional-grade functionality without any barriers.`,
+              order: 2
+            },
+            {
+              id: `${page.id}-3`,
+              title: `How to Use ${page.name}`,
+              content: `Using the ${page.name} tool on Toolistan is incredibly simple and straightforward. Start by navigating to the ${page.name} page on our website. Once there, you'll see a clean, intuitive interface with clear instructions. Input your data using the provided interface - you can type directly, paste from clipboard, or use the specific input methods available for this tool. The tool processes your input instantly and displays results in a clear, easy-to-read format. You can copy results to your clipboard, download them in various formats, or perform additional operations as needed. No technical knowledge is required, making our ${page.name} accessible to everyone.`,
+              order: 3
+            },
+            {
+              id: `${page.id}-4`,
+              title: `Applications and Use Cases`,
+              content: `The ${page.name} tool serves a wide range of applications across different industries and user groups. Professionals use it to streamline daily workflows and improve efficiency. Students find it invaluable for academic projects, assignments, and research work. Content creators and digital marketers rely on it for producing high-quality content and optimizing their online presence. Developers and programmers use it for various technical tasks and testing purposes. Small business owners leverage it to save time and resources. The tool's versatility makes it suitable for both personal and professional use, handling everything from simple everyday tasks to complex professional requirements.`,
+              order: 4
+            }
+          ];
+        }
+
+        // Only add FAQs if page doesn't have any
+        if (!page.faqs || page.faqs.length === 0) {
+          page.faqs = [
+            {
+              id: `${page.id}-faq-1`,
+              question: `Is the ${page.name} tool completely free?`,
+              answer: `Yes, our ${page.name} tool is 100% free to use with absolutely no limitations. You can use it as many times as you need without any registration, subscription, or payment required.`,
+              pageId: page.id,
+              order: 1
+            },
+            {
+              id: `${page.id}-faq-2`,
+              question: `Do I need to create an account?`,
+              answer: `No, you don't need to create an account, register, or provide any personal information. Simply visit the ${page.name} page and start using the tool immediately.`,
+              pageId: page.id,
+              order: 2
+            },
+            {
+              id: `${page.id}-faq-3`,
+              question: `Is my data safe and secure?`,
+              answer: `Absolutely! All processing happens locally in your browser. We do not store, collect, transmit, or have access to your data in any way. Your information remains completely private and secure.`,
+              pageId: page.id,
+              order: 3
+            },
+            {
+              id: `${page.id}-faq-4`,
+              question: `Can I use this tool on mobile devices?`,
+              answer: `Yes! Our ${page.name} tool is fully responsive and optimized for all devices. It works perfectly on smartphones, tablets, and desktop computers.`,
+              pageId: page.id,
+              order: 4
+            },
+            {
+              id: `${page.id}-faq-5`,
+              question: `Are there any usage limits?`,
+              answer: `No, there are no usage limits, restrictions, or quotas. You can use the ${page.name} tool as many times as you need, completely free of charge.`,
+              pageId: page.id,
+              order: 5
+            }
+          ];
+        }
+
+        return page;
+      });
+
+      updatePagesData(updatedPages);
+      alert('Content and FAQs have been initialized for all pages!');
+      loadPagesData();
+    }
+  };
+
   const filteredPages = pages.filter(page => {
     const matchesSearch = page.name.toLowerCase().includes(searchTerm.toLowerCase()) || page.category.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesCategory = filterCategory === 'all' || page.category === filterCategory;
@@ -332,10 +415,20 @@ const Dashboard: React.FC = () => {
                 <p className="text-sm text-gray-600">Manage all pages and SEO content</p>
               </div>
             </div>
-            <button onClick={handleLogout} className="flex items-center gap-2 px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg transition">
-              <LogOut className="w-4 h-4" />
-              Logout
-            </button>
+            <div className="flex items-center gap-3">
+              <button 
+                onClick={handleInitializeAllContent} 
+                className="flex items-center gap-2 px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg transition"
+                title="Add default content and FAQs to all pages"
+              >
+                <Plus className="w-4 h-4" />
+                Initialize Content
+              </button>
+              <button onClick={handleLogout} className="flex items-center gap-2 px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg transition">
+                <LogOut className="w-4 h-4" />
+                Logout
+              </button>
+            </div>
           </div>
         </div>
       </header>
