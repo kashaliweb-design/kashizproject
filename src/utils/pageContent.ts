@@ -13,27 +13,33 @@ export const generatePageContent = (pageId: string, pageName: string, category: 
       contentSections: [
         {
           id: '1',
-          title: 'What is a Word Counter Tool?',
-          content: 'A Word Counter is an essential online tool designed to help writers, students, content creators, and professionals accurately count the number of words, characters, sentences, and paragraphs in any given text. At Toolistan, our free Word Counter tool provides instant and accurate results, making it perfect for anyone who needs to meet specific word count requirements for essays, articles, blog posts, social media content, or any other written material. The tool is completely free to use, requires no registration, and works directly in your browser without any downloads or installations.',
+          title: 'What is WordCounter? — Tolistaan\'s Free Online Word Count Tool',
+          content: 'Tolistaan\'s WordCounter is a smart, fast, and user-friendly Free Online Word Counter Tool designed to help you count words, improve your writing, and get instant results. Whether you are a student, blogger, content creator, or professional writer, our word counter website makes writing easier, cleaner, and more accurate. Simply paste your text or start typing in the editor, and the tool will automatically count words and characters in real time. Every edit, delete, or update instantly adjusts the results, ensuring you always stay within your required word or character limits.',
           order: 1
         },
         {
           id: '2',
-          title: 'Why Use Our Word Counter?',
-          content: 'Our Word Counter tool at Toolistan offers numerous benefits for various users. Whether you are a student working on an assignment with strict word limits, a content writer optimizing articles for SEO, a social media manager crafting posts within character limits, or a professional preparing reports and documents, our tool provides accurate real-time counting. It helps you stay within word limits, improve your writing efficiency, optimize content for search engines, and ensure your text meets platform-specific requirements. The tool is fast, reliable, and provides comprehensive statistics including word count, character count with and without spaces, sentence count, paragraph count, and reading time estimates.',
+          title: 'Why Use Tolistaan\'s WordCounter?',
+          content: '<strong>1. Count Words & Characters Instantly</strong><br/>Our advanced Character Counter and Word Counter give you instant results, showing your total words, characters (with and without spaces), sentences, and paragraphs. It also works as a reliable paragraph counter for longer content.<br/><br/><strong>2. Improve Your Writing Style</strong><br/>The tool is designed not only to Count Words but also to help you Correct Writing. You can refine your tone, eliminate unnecessary wording, and produce more clear and engaging content.<br/><br/><strong>3. Keyword Insights for Better SEO</strong><br/>Tolistaan\'s editor shows your top keywords and keyword density, ensuring you avoid over-optimization. This helps content creators maintain a natural flow while improving ranking opportunities.<br/><br/><strong>4. Reading Level & Engagement Score</strong><br/>Our built-in Reading Level feature tells you how easy or difficult your text is to understand. This ensures your content matches your audience\'s reading capability.<br/><br/><strong>5. Auto-Save Feature</strong><br/>No need to worry about losing your work. The text editor auto-saves your content so you can return anytime.',
           order: 2
         },
         {
           id: '3',
-          title: 'How to Use the Word Counter Tool',
-          content: 'Using our Word Counter tool is incredibly simple and straightforward. First, navigate to the Word Counter page on Toolistan. Then, simply paste or type your text into the text area provided. The tool will automatically and instantly count the words, characters, sentences, and paragraphs as you type or paste. You can see real-time updates of all statistics displayed clearly on the screen. The tool also provides additional information such as reading time, speaking time, and keyword density. You can easily copy your text, clear the text area, or export the statistics for your records. Our Word Counter works with text in any language and handles large documents efficiently.',
+          title: 'How Tolistaan\'s Free Word Count Tool Helps You',
+          content: 'Knowing the word count of your text is essential, especially for:<br/><ul><li>Articles & blog posts</li><li>Essays & academic assignments</li><li>Reports and books</li><li>Business documents</li><li>Creative writing</li><li>Social media captions</li><li>SEO-optimized content</li></ul><br/>Tolistaan\'s Free Online Word Counter, Free Word Count Tool, and all-in-one Writing Tools help you meet your required word limits while improving clarity and structure.',
           order: 3
         },
         {
           id: '4',
-          title: 'Features and Benefits',
-          content: 'Toolistan Word Counter comes packed with powerful features designed to enhance your writing experience. Key features include real-time counting that updates as you type, accurate word and character counting algorithms, sentence and paragraph detection, reading time estimation based on average reading speed, speaking time calculation for presentations, keyword density analysis for SEO optimization, support for multiple languages, mobile-friendly responsive design, no registration or login required, completely free to use with no limitations, privacy-focused with no data storage, and fast processing even for large documents. These features make our Word Counter an indispensable tool for anyone working with text content.',
+          title: 'Features Packed in One Powerful Counting Tool',
+          content: '<ul><li>Free Online Word Counter</li><li>Count Words and Characters</li><li>Character Counter</li><li>Paragraph Counter</li><li>Reading Level Checker</li><li>Correct Writing Suggestions</li><li>Keyword Analysis</li><li>Writing Tools for SEO & Clarity</li><li>Instant Results</li><li>Auto-Save (No Data Loss!)</li><li>Clean, fast, mobile-friendly interface</li></ul><br/>Everything inside Tolistaan is built to Help WordCounter users write better, faster, and smarter.',
           order: 4
+        },
+        {
+          id: '5',
+          title: 'Why Tolistaan Is the Best Word Counting Tool Online',
+          content: 'Tolistaan gives you accuracy, reliability, and a smooth writing experience. Whether you want to check your word limit, improve readability, or analyze keyword frequency, our counting tool provides everything in one place. We aim to make writing easier for everyone — from beginners to professionals — with tools that are simple, powerful, and 100% free.',
+          order: 5
         }
       ],
       faqs: [
@@ -145,27 +151,105 @@ export const generatePageContent = (pageId: string, pageName: string, category: 
       contentSections: [
         {
           id: '1',
-          title: 'What is a Case Converter Tool?',
-          content: 'The Case Converter tool by Toolistan is a versatile online utility that allows you to instantly convert text between different letter cases. Whether you need to convert text to UPPERCASE, lowercase, Title Case, Sentence case, or other variations, our free Case Converter makes it effortless. This tool is invaluable for writers, editors, students, programmers, and anyone who works with text and needs to quickly change the capitalization style. The Case Converter supports multiple case formats and processes text instantly without any manual retyping. It saves time, reduces errors, and ensures consistency in your text formatting across documents, websites, and applications.',
+          title: 'What is a Convert Case Tool?',
+          content: 'Welcome to Tolistaan, the most accurate and Free Online Case Converter Tool on the internet. Our Convert Case tool helps you instantly transform any text into multiple formats such as Sentence Case, Lowercase Letters, UPPERCASE, Title Case, alternated text, and many more. Whether you\'re a student, writer, blogger, or professional, Tolistaan makes it easy to Convert Uppercase to Lowercase, fix capitalization errors, or format text professionally with just one click. If your keyboard is stuck on CAPS LOCK, or you need a clean, readable format for your writing, our case converter tool gives you fast, error-free results.',
           order: 1
         },
         {
           id: '2',
-          title: 'Available Case Conversion Options',
-          content: 'Our Case Converter offers several powerful conversion options to meet all your text formatting needs. UPPERCASE converts all letters to capital letters, perfect for headings and emphasis. lowercase converts all letters to small letters, useful for email addresses and URLs. Title Case capitalizes the first letter of each word, ideal for titles and headings. Sentence case capitalizes only the first letter of each sentence, mimicking natural writing style. Capitalized Case capitalizes the first letter of each word including articles. Alternating Case alternates between uppercase and lowercase letters for creative effects. Inverse Case swaps the case of each letter. Each conversion option is designed to handle text intelligently, preserving numbers, special characters, and punctuation while transforming letter cases accurately.',
+          title: 'Sentence Case',
+          content: 'Our Sentence Case Converter automatically converts your entire text into perfect sentence style. It capitalizes only the first letter of the sentence and converts the rest into lowercase. This tool is ideal for writers who want to change to sentence case effortlessly or fix improperly typed text. Whether your text came from notes, copied content, or CAPS LOCK mistakes, the sentence case tool corrects everything instantly.',
           order: 2
         },
         {
           id: '3',
-          title: 'How to Use the Case Converter',
-          content: 'Using the Toolistan Case Converter is straightforward and efficient. First, navigate to the Case Converter tool page. Paste or type your text into the input text area. Select the desired case conversion option from the available buttons (UPPERCASE, lowercase, Title Case, Sentence case, etc.). Click the conversion button and your text will be instantly transformed to the selected case format. You can then copy the converted text to your clipboard with a single click. The tool allows you to convert text multiple times, switching between different case formats until you achieve the desired result. It works seamlessly on all devices and browsers, providing a consistent experience whether you are on desktop, tablet, or mobile.',
+          title: 'Lower Case',
+          content: 'Need to convert text into small letters? Tolistaan\'s Lowercase letter tool instantly converts all characters into clean, simple lowercase formatting. It is also perfect for converting capital letter to small letter or doing fast transformations like caps to lowercase or using our caps to lowercase converter when an accidental uppercase text appears.',
           order: 3
         },
         {
           id: '4',
-          title: 'Benefits and Use Cases',
-          content: 'The Case Converter tool offers numerous benefits and serves various use cases across different professions and scenarios. Writers and editors use it to fix capitalization errors in manuscripts and articles. Students use it to format essays and assignments according to specific style guides. Programmers use it to convert variable names and code comments to different naming conventions. Content creators use it to format social media posts and blog titles consistently. Marketers use it to create attention-grabbing headlines and ad copy. Data entry professionals use it to standardize text data from multiple sources. SEO specialists use it to optimize title tags and meta descriptions. The tool eliminates the tedious manual work of retyping text in different cases, saving valuable time and ensuring accuracy in text formatting.',
+          title: 'Upper Case',
+          content: 'Want to convert all text into capital letters? The all caps converter instantly transforms any sentence into UPPERCASE letters. Great for headings, emphasis text, formal documents, and when you need quick Text Case Convert features that remove formatting errors.',
           order: 4
+        },
+        {
+          id: '5',
+          title: 'Capitalized Case',
+          content: 'The Capitalized Case tool capitalizes the first letter of every word, making your text look neat, professional, and ready for branding or titles. This option is especially helpful for social media posts, names, product titles, and formatting long blocks of text.',
+          order: 5
+        },
+        {
+          id: '6',
+          title: 'Alternating Case',
+          content: 'If you want fun, creative, eye-catching text, the Convert to Alternate Case tool changes your sentence into alternating upper and lowercase letters. Perfect for memes, fun messages, or unique styling.',
+          order: 6
+        },
+        {
+          id: '7',
+          title: 'Title Case',
+          content: 'Tolistaan\'s Title Case Converter Tool uses advanced rules to format your titles professionally — just like books, articles, and headlines. Our title capitalization converter and title case tool fix capitalization rules for English titles, ensuring the first letter of important words is capitalized correctly.',
+          order: 7
+        },
+        {
+          id: '8',
+          title: 'Small Text Generator',
+          content: 'Generate stylish, tiny-font text with the Small Text Generator. This tool converts your text into Unicode small characters, ideal for social media bios, captions, and aesthetic writing.',
+          order: 8
+        },
+        {
+          id: '9',
+          title: 'Wide Text Generator',
+          content: 'Use the Wide Text Generator to add spacing between letters, creating a stretched-out visual effect. Great for design work and creative formatting.',
+          order: 9
+        },
+        {
+          id: '10',
+          title: 'Strikethrough Text Generator',
+          content: 'The Strikethrough Text Generator lets you cross out text for memes, corrections, edits, or creative writing. One click adds strikethrough formatting to any sentence.',
+          order: 10
+        },
+        {
+          id: '11',
+          title: 'An Easy Way to Change Uppercase to Lowercase and Title Capitalization',
+          content: 'Tolistaan gives you the easiest way to Convert Uppercase to Lowercase, fix capitalization errors, and format text into title, sentence, or capitalized style. No need to manually retype your text — simply paste it, choose a case format, and get instant results.',
+          order: 11
+        },
+        {
+          id: '12',
+          title: 'Case Converter Tool to Easily Transform Any Text',
+          content: 'Our Free Online Case Converter Tool helps you transform text quickly:<br/><ul><li>Uppercase</li><li>Lowercase</li><li>Sentence Case</li><li>Title Case</li><li>Alternating Case</li><li>Capitalized Case</li></ul><br/>Tolistaan makes Convert Case Online simple, fast, and accurate.',
+          order: 12
+        },
+        {
+          id: '13',
+          title: 'Convert to Toggle Case',
+          content: 'The Toggle Case feature flips every letter — uppercase becomes lowercase and lowercase becomes uppercase. This is perfect when text is typed incorrectly or when you need a stylistic variation.',
+          order: 13
+        },
+        {
+          id: '14',
+          title: 'Change Text Case to Sentence Case',
+          content: 'If your text is in all caps or fully lowercase, you can change text case to sentence case with a single click. Useful for writers and editors who need quick formatting without manual effort.',
+          order: 14
+        },
+        {
+          id: '15',
+          title: 'Convert Lower Case To Upper Case Letters',
+          content: 'Instantly transform any lowercase text into clean uppercase formatting. Perfect for headings, announcements, and bold statements.',
+          order: 15
+        },
+        {
+          id: '16',
+          title: 'Text Converter: Capital Letters and Small Letters',
+          content: 'Using our advanced Text Case Convert tool, you can switch between capital letters and small letters flawlessly. It works better and faster than formatting in documents like Word. This includes conversions like:<br/><ul><li>capital letters to small converter</li><li>uppercase to lowercase in Word alternative</li><li>caps lock converter</li></ul><br/>Tolistaan simplifies everything with one click.',
+          order: 16
+        },
+        {
+          id: '17',
+          title: 'Convert to Alternate Case',
+          content: 'Use the Alternating Case tool to create playful and visually interesting text. It switches between uppercase and lowercase letters automatically, giving you a unique text style.',
+          order: 17
         }
       ],
       faqs: [
