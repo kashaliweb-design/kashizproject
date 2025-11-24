@@ -183,6 +183,19 @@ const AgeCalculator: React.FC = () => {
             </div>
           </div>
         )}
+
+        {/* Introduction Section */}
+        <div className="backdrop-blur-md bg-black/20 border border-glass rounded-lg p-6 sm:p-8 mt-8">
+          <h1 className="text-3xl sm:text-4xl font-bold text-white mb-6">
+            Welcome to Toolistaan.com – The Most Accurate Age Calculator Online
+          </h1>
+          <p className="text-white/80 text-base sm:text-lg leading-relaxed mb-4">
+            Welcome to <strong className="text-white">Toolistaan.com</strong>, your trusted destination for fast and accurate <strong className="text-white">Age Calculators</strong>, <strong className="text-white">Date Calculators</strong>, and <strong className="text-white">Online Age Calculation By Date of Birth</strong>. Our <strong className="text-white">Age Calculator Online</strong> helps you determine your exact age in years, months, days, hours, minutes, and seconds — instantly and with 100% accuracy.
+          </p>
+          <p className="text-white/80 text-base sm:text-lg leading-relaxed">
+            Whether you need an <strong className="text-white">Age Calculator by Date of Birth</strong>, a <strong className="text-white">Date of Birth Calculator</strong>, or a <strong className="text-white">Special Age Calculator</strong> for children, babies, or age gaps, Toolistaan.com offers a simple, smart, and user-friendly solution.
+          </p>
+        </div>
       </div>
 
         <PageContent />

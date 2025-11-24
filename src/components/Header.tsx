@@ -235,62 +235,159 @@ const Header: React.FC = () => {
           </Link>
 
           {/* Desktop Navigation - Centered */}
-          <nav className="hidden lg:flex items-center gap-3 absolute left-1/2 transform -translate-x-1/2">
-            <Link to="/" className="flex items-center gap-2 text-white/70 hover:text-white transition-colors px-4 py-2 rounded-lg hover:bg-white/10">
-              <Home size={18} />
-              <span>Home</span>
+          <nav className="hidden lg:flex items-center gap-2 absolute left-1/2 transform -translate-x-1/2">
+            <Link to="/" className="flex items-center gap-2 text-white/70 hover:text-white transition-colors px-3 py-2 rounded-lg hover:bg-white/10">
+              <Home size={16} />
+              <span className="text-sm">Home</span>
             </Link>
 
-            {/* All Tools Mega Menu */}
+            {/* Text Tools Mega Menu */}
             <div
               className="relative"
-              onMouseEnter={() => setActiveMegaMenu('all-tools')}
+              onMouseEnter={() => setActiveMegaMenu('text-tools')}
               onMouseLeave={() => setActiveMegaMenu(null)}
             >
-              <button className="flex items-center gap-2 text-white/70 hover:text-white transition-colors px-4 py-2 rounded-lg hover:bg-white/10">
-                <Menu size={18} />
-                <span>All Tools</span>
-                <ChevronDown size={14} />
+              <button className="flex items-center gap-2 text-white/70 hover:text-white transition-colors px-3 py-2 rounded-lg hover:bg-white/10">
+                <Type size={16} />
+                <span className="text-sm">Text Tools</span>
+                <ChevronDown size={12} />
               </button>
 
-              {/* All Tools Mega Menu Dropdown */}
-              <div className={`absolute top-full left-1/2 transform -translate-x-1/2 mt-2 transition-all duration-300 z-50 ${
-                activeMegaMenu === 'all-tools' ? 'opacity-100 visible' : 'opacity-0 invisible'
+              {/* Text Tools Dropdown */}
+              <div className={`absolute top-full left-0 mt-2 transition-all duration-300 z-50 ${
+                activeMegaMenu === 'text-tools' ? 'opacity-100 visible' : 'opacity-0 invisible'
               }`}>
-                <div className="backdrop-blur-md bg-black/95 border border-white/10 rounded-xl shadow-2xl p-4 sm:p-6 w-[95vw] sm:w-[90vw] max-w-6xl max-h-[85vh] overflow-y-auto">
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-4 sm:mb-6 pb-3 sm:pb-4 border-b border-white/10">
-                    <div className="flex items-center gap-2 sm:gap-3">
-                      <Menu size={20} className="text-cyan-400 sm:w-6 sm:h-6" />
-                      <h3 className="text-white font-semibold text-lg sm:text-xl">All Tools</h3>
-                      <span className="text-white/50 text-xs sm:text-sm">({Object.values(toolCategories).reduce((acc, cat) => acc + cat.tools.length, 0)} tools)</span>
-                    </div>
+                <div className="backdrop-blur-md bg-black/95 border border-white/10 rounded-xl shadow-2xl p-4 w-64 max-h-[70vh] overflow-y-auto">
+                  <div className="flex items-center gap-2 mb-3 pb-2 border-b border-white/10">
+                    <Type size={18} className="text-blue-400" />
+                    <h3 className="text-white font-semibold text-sm">Text Tools</h3>
+                    <span className="text-white/40 text-xs ml-auto">({toolCategories['text-tools'].tools.length})</span>
                   </div>
+                  <div className="space-y-0.5">
+                    {toolCategories['text-tools'].tools.map((tool, index) => (
+                      <Link
+                        key={index}
+                        to={tool.path}
+                        className="block px-3 py-1.5 text-white/80 hover:text-white hover:bg-white/10 transition-all text-xs rounded"
+                        onClick={() => setActiveMegaMenu(null)}
+                      >
+                        {tool.name}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-                    {Object.entries(toolCategories).map(([key, category]) => {
-                      const IconComponent = category.icon;
-                      return (
-                        <div key={key} className="backdrop-blur-sm bg-white/5 rounded-lg p-3 sm:p-4 border border-white/10">
-                          <div className="flex items-center gap-2 mb-2 sm:mb-3 pb-2 border-b border-white/10">
-                            <IconComponent size={18} className={category.color} />
-                            <h4 className="text-white font-semibold text-sm sm:text-base">{category.title}</h4>
-                            <span className="text-white/40 text-xs ml-auto">({category.tools.length})</span>
-                          </div>
-                          <div className="space-y-0.5 sm:space-y-1">
-                            {category.tools.map((tool, index) => (
-                              <Link
-                                key={index}
-                                to={tool.path}
-                                className="block px-2 sm:px-3 py-1 sm:py-1.5 text-white/80 hover:text-white hover:bg-white/10 transition-all text-xs sm:text-sm rounded"
-                                onClick={() => setActiveMegaMenu(null)}
-                              >
-                                {tool.name}
-                              </Link>
-                            ))}
-                          </div>
-                        </div>
-                      );
-                    })}
+            {/* Calculator Tools Mega Menu */}
+            <div
+              className="relative"
+              onMouseEnter={() => setActiveMegaMenu('calculator-tools')}
+              onMouseLeave={() => setActiveMegaMenu(null)}
+            >
+              <button className="flex items-center gap-2 text-white/70 hover:text-white transition-colors px-3 py-2 rounded-lg hover:bg-white/10">
+                <Calculator size={16} />
+                <span className="text-sm">Calculator Tools</span>
+                <ChevronDown size={12} />
+              </button>
+
+              {/* Calculator Tools Dropdown */}
+              <div className={`absolute top-full left-0 mt-2 transition-all duration-300 z-50 ${
+                activeMegaMenu === 'calculator-tools' ? 'opacity-100 visible' : 'opacity-0 invisible'
+              }`}>
+                <div className="backdrop-blur-md bg-black/95 border border-white/10 rounded-xl shadow-2xl p-4 w-64 max-h-[70vh] overflow-y-auto">
+                  <div className="flex items-center gap-2 mb-3 pb-2 border-b border-white/10">
+                    <Calculator size={18} className="text-green-400" />
+                    <h3 className="text-white font-semibold text-sm">Calculator Tools</h3>
+                    <span className="text-white/40 text-xs ml-auto">({toolCategories['calculator-tools'].tools.length})</span>
+                  </div>
+                  <div className="space-y-0.5">
+                    {toolCategories['calculator-tools'].tools.map((tool, index) => (
+                      <Link
+                        key={index}
+                        to={tool.path}
+                        className="block px-3 py-1.5 text-white/80 hover:text-white hover:bg-white/10 transition-all text-xs rounded"
+                        onClick={() => setActiveMegaMenu(null)}
+                      >
+                        {tool.name}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Unit Converters Mega Menu */}
+            <div
+              className="relative"
+              onMouseEnter={() => setActiveMegaMenu('unit-converters')}
+              onMouseLeave={() => setActiveMegaMenu(null)}
+            >
+              <button className="flex items-center gap-2 text-white/70 hover:text-white transition-colors px-3 py-2 rounded-lg hover:bg-white/10">
+                <ArrowRightLeft size={16} />
+                <span className="text-sm">Unit Converters</span>
+                <ChevronDown size={12} />
+              </button>
+
+              {/* Unit Converters Dropdown */}
+              <div className={`absolute top-full left-0 mt-2 transition-all duration-300 z-50 ${
+                activeMegaMenu === 'unit-converters' ? 'opacity-100 visible' : 'opacity-0 invisible'
+              }`}>
+                <div className="backdrop-blur-md bg-black/95 border border-white/10 rounded-xl shadow-2xl p-4 w-64 max-h-[70vh] overflow-y-auto">
+                  <div className="flex items-center gap-2 mb-3 pb-2 border-b border-white/10">
+                    <ArrowRightLeft size={18} className="text-purple-400" />
+                    <h3 className="text-white font-semibold text-sm">Unit Converters</h3>
+                    <span className="text-white/40 text-xs ml-auto">({toolCategories['unit-converters'].tools.length})</span>
+                  </div>
+                  <div className="space-y-0.5">
+                    {toolCategories['unit-converters'].tools.map((tool, index) => (
+                      <Link
+                        key={index}
+                        to={tool.path}
+                        className="block px-3 py-1.5 text-white/80 hover:text-white hover:bg-white/10 transition-all text-xs rounded"
+                        onClick={() => setActiveMegaMenu(null)}
+                      >
+                        {tool.name}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* SEO Tools Mega Menu */}
+            <div
+              className="relative"
+              onMouseEnter={() => setActiveMegaMenu('seo-tools')}
+              onMouseLeave={() => setActiveMegaMenu(null)}
+            >
+              <button className="flex items-center gap-2 text-white/70 hover:text-white transition-colors px-3 py-2 rounded-lg hover:bg-white/10">
+                <Search size={16} />
+                <span className="text-sm">SEO Tools</span>
+                <ChevronDown size={12} />
+              </button>
+
+              {/* SEO Tools Dropdown */}
+              <div className={`absolute top-full left-0 mt-2 transition-all duration-300 z-50 ${
+                activeMegaMenu === 'seo-tools' ? 'opacity-100 visible' : 'opacity-0 invisible'
+              }`}>
+                <div className="backdrop-blur-md bg-black/95 border border-white/10 rounded-xl shadow-2xl p-4 w-64 max-h-[70vh] overflow-y-auto">
+                  <div className="flex items-center gap-2 mb-3 pb-2 border-b border-white/10">
+                    <Search size={18} className="text-emerald-400" />
+                    <h3 className="text-white font-semibold text-sm">SEO Tools</h3>
+                    <span className="text-white/40 text-xs ml-auto">({toolCategories['seo-tools'].tools.length})</span>
+                  </div>
+                  <div className="space-y-0.5">
+                    {toolCategories['seo-tools'].tools.map((tool, index) => (
+                      <Link
+                        key={index}
+                        to={tool.path}
+                        className="block px-3 py-1.5 text-white/80 hover:text-white hover:bg-white/10 transition-all text-xs rounded"
+                        onClick={() => setActiveMegaMenu(null)}
+                      >
+                        {tool.name}
+                      </Link>
+                    ))}
                   </div>
                 </div>
               </div>
