@@ -125,7 +125,7 @@ function App() {
           <Route path="/text-tools/character-counter" element={<CharacterCounter />} />
           <Route path="/text-tools/sentence-counter" element={<SentenceCounter />} />
           <Route path="/text-tools/paragraph-counter" element={<ParagraphCounter />} />
-          <Route path="/text-tools/case-converter" element={<CaseConverter />} />
+          <Route path="/text-tools/online-text-case-converter" element={<CaseConverter />} />
           <Route path="/text-tools/remove-duplicates" element={<RemoveDuplicates />} />
           <Route path="/text-tools/reverse-text" element={<ReverseText />} />
           <Route path="/text-tools/text-to-binary" element={<TextToBinary />} />

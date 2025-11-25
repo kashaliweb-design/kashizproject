@@ -9,7 +9,7 @@ const Home = () => {
 
   const textTools = [
     { title: "Word Counter", description: "Count words, characters, and paragraphs", icon: Type, link: "/text-tools/word-counter", gradient: "from-blue-500 to-purple-600" },
-    { title: "Case Converter", description: "Convert text to different cases", icon: Type, link: "/text-tools/case-converter", gradient: "from-green-500 to-blue-600" },
+    { title: "Case Converter", description: "Convert text to different cases", icon: Type, link: "/text-tools/online-text-case-converter", gradient: "from-green-500 to-blue-600" },
     { title: "Text Reverser", description: "Reverse your text instantly", icon: Type, link: "/text-tools/reverse-text", gradient: "from-purple-500 to-pink-600" },
     { title: "Remove Duplicates", description: "Remove duplicate lines from text", icon: Type, link: "/text-tools/remove-duplicates", gradient: "from-red-500 to-orange-600" },
     { title: "Text Sorter", description: "Sort text lines alphabetically", icon: Type, link: "/text-tools/text-sorter", gradient: "from-teal-500 to-green-600" },

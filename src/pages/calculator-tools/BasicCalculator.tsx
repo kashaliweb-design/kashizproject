@@ -88,7 +88,12 @@ const BasicCalculator: React.FC = () => {
   );
 
   return (
-    <Layout title="Basic Calculator" showBackButton>
+    <Layout 
+      title="Basic Calculator" 
+      showBackButton
+      seoTitle="Simple Online Calculator – Free Basic Math Calculator"
+      seoDescription="Use our free Basic Calculator online to solve math problems quickly. Simple, fast, and easy calculator for all your basic calculations."
+    >
       <div className="max-w-md mx-auto">
         <div className="backdrop-blur-md bg-black/20 border border-glass rounded-xl p-6">
           {/* Display */}

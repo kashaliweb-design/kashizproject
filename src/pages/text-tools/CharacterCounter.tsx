@@ -39,7 +39,12 @@ const CharacterCounter: React.FC = () => {
   };
 
   return (
-    <Layout title="Character Counter" showBackButton>
+    <Layout 
+      title="Character Counter" 
+      showBackButton
+      seoTitle="Best Online Character Count Tool – Accurate & Free"
+      seoDescription="Count characters quickly and accurately with Toolistaan's Free Online Character Count Tool. Fast, reliable, and easy-to-use for writers & developers."
+    >
       <div className="space-y-6">
         <div>
           <label className="block text-white/70 text-sm font-medium mb-2">

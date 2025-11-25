@@ -67,7 +67,12 @@ const RemoveDuplicates: React.FC = () => {
   const processedText = removeDuplicateLines(text);
 
   return (
-    <Layout title="Remove Duplicate Lines" showBackButton>
+    <Layout 
+      title="Remove Duplicate Lines" 
+      showBackButton
+      seoTitle="Online Duplicate Line Remover – Fast & Easy Tool"
+      seoDescription="Remove duplicate lines online instantly with our free tool. Clean, organize, and streamline your text in seconds!"
+    >
       <div className="space-y-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* Input Section */}

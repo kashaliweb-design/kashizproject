@@ -33,7 +33,12 @@ const WordCounter: React.FC = () => {
   };
 
   return (
-    <Layout title="Word Counter" showBackButton>
+    <Layout 
+      title="Word Counter" 
+      showBackButton
+      seoTitle="Free Online Word Counter | Fast Word & Character Counter"
+      seoDescription="Use our free online Word Counter tool to count words, characters, sentences, and readability instantly. Accurate, fast, and perfect for writers, students, and SEO."
+    >
       <div className="space-y-4 sm:space-y-6">
         <div>
           <label className="block text-white/70 text-sm font-medium mb-2">

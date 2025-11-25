@@ -62,7 +62,12 @@ const ReverseText: React.FC = () => {
   };
 
   return (
-    <Layout title="Reverse Text" showBackButton>
+    <Layout 
+      title="Reverse Text" 
+      showBackButton
+      seoTitle="Text Reverser – Reverse Text Online | Free Backwards Generator"
+      seoDescription="Use Toolistaan's Text Reverser to instantly reverse text online. Free, fast, and easy backwards text generator for fun or work. Try it now"
+    >
       <div className="space-y-6">
         <div>
           <label className="block text-white/70 text-sm font-medium mb-2">

@@ -44,7 +44,12 @@ const CaseConverter: React.FC = () => {
   ];
 
   return (
-    <Layout title="Text Case Converter" showBackButton>
+    <Layout 
+      title="Text Case Converter" 
+      showBackButton
+      seoTitle="Online Text Case Converter | Uppercase to Lowercase Tool"
+      seoDescription="Use Toolistaan's free Text Case Converter to convert text between uppercase, lowercase, and capitalize formats. Simple, fast, and built for perfect accuracy."
+    >
       <div className="space-y-6">
         <div>
           <label className="block text-white/70 text-sm font-medium mb-2">

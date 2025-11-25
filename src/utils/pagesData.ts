@@ -45,7 +45,7 @@ export const initialPagesData: PageData[] = [
   { id: 'character-counter', name: 'Character Counter', path: '/text-tools/character-counter', category: 'Text Tools', seo: getDefaultSEO('Character Counter') },
   { id: 'sentence-counter', name: 'Sentence Counter', path: '/text-tools/sentence-counter', category: 'Text Tools', seo: getDefaultSEO('Sentence Counter') },
   { id: 'paragraph-counter', name: 'Paragraph Counter', path: '/text-tools/paragraph-counter', category: 'Text Tools', seo: getDefaultSEO('Paragraph Counter') },
-  { id: 'case-converter', name: 'Case Converter', path: '/text-tools/case-converter', category: 'Text Tools', seo: getDefaultSEO('Case Converter') },
+  { id: 'case-converter', name: 'Case Converter', path: '/text-tools/online-text-case-converter', category: 'Text Tools', seo: getDefaultSEO('Case Converter') },
   { id: 'text-to-binary', name: 'Text to Binary', path: '/text-tools/text-to-binary', category: 'Text Tools', seo: getDefaultSEO('Text to Binary') },
   { id: 'text-to-ascii', name: 'Text to ASCII', path: '/text-tools/text-to-ascii', category: 'Text Tools', seo: getDefaultSEO('Text to ASCII') },
   { id: 'reverse-text', name: 'Reverse Text', path: '/text-tools/reverse-text', category: 'Text Tools', seo: getDefaultSEO('Reverse Text') },

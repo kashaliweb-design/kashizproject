@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import Header from './Header';
@@ -8,9 +8,26 @@ interface LayoutProps {
   children: React.ReactNode;
   title: string;
   showBackButton?: boolean;
+  seoTitle?: string;
+  seoDescription?: string;
 }
 
-const Layout: React.FC<LayoutProps> = ({ children, title, showBackButton = false }) => {
+const Layout: React.FC<LayoutProps> = ({ children, title, showBackButton = false, seoTitle, seoDescription }) => {
+  useEffect(() => {
+    // Update document title
+    document.title = seoTitle || title;
+    
+    // Update meta description
+    let metaDescription = document.querySelector('meta[name="description"]');
+    if (!metaDescription) {
+      metaDescription = document.createElement('meta');
+      metaDescription.setAttribute('name', 'description');
+      document.head.appendChild(metaDescription);
+    }
+    if (seoDescription) {
+      metaDescription.setAttribute('content', seoDescription);
+    }
+  }, [title, seoTitle, seoDescription]);
   return (
     <div className="min-h-screen bg-dark-gradient">
       <Header />

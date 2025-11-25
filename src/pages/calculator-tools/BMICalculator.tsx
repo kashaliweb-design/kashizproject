@@ -63,7 +63,12 @@ const BMICalculator: React.FC = () => {
   };
 
   return (
-    <Layout title="BMI Calculator" showBackButton>
+    <Layout 
+      title="BMI Calculator" 
+      showBackButton
+      seoTitle="BMI Calculator Online – Calculate Your Body Mass Index & Healthy Weight"
+      seoDescription="Use our free BMI Calculator to easily calculate your Body Mass Index and check your healthy weight online. Quick, accurate & trusted tool!"
+    >
       <div className="max-w-2xl mx-auto space-y-6">
         {/* Unit Selection */}
         <div className="flex justify-center space-x-4">

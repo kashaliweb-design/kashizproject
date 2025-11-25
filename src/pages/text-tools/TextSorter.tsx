@@ -84,7 +84,12 @@ const TextSorter: React.FC = () => {
   const selectedOption = sortOptions.find(option => option.id === sortType);
 
   return (
-    <Layout title="Text Sorter" showBackButton>
+    <Layout 
+      title="Text Sorter" 
+      showBackButton
+      seoTitle="Text Line Sorter – Online Tool to Reformat & Clean Your List"
+      seoDescription="Sort, clean, and reformat your text lines online instantly. Organize lists easily with our free, fast, and user-friendly text sorter tool."
+    >
       <div className="space-y-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* Input Section */}

@@ -69,7 +69,12 @@ const AgeCalculator: React.FC = () => {
   };
 
   return (
-    <Layout title="Age Calculator" showBackButton>
+    <Layout 
+      title="Age Calculator" 
+      showBackButton
+      seoTitle="Online Age Calculator – Calculate Your Exact Age in Seconds"
+      seoDescription="Use the best online Age Calculator to instantly find your exact age. Accurate, fast, and trusted tool for all your age calculations in 2025."
+    >
       <div className="max-w-4xl mx-auto space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Input Section */}
