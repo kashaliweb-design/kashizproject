@@ -1,106 +1,107 @@
-import React, { useEffect } from 'react';
+import { useEffect, lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './pages/Home';
 import { initializePageContent } from './utils/initializeContent';
 import { initialPagesData } from './utils/pagesData';
 
+// Eager load Home page for better initial experience
+import Home from './pages/Home';
+
+// Lazy load all other pages
 // Text Tools
-import WordCounter from './pages/text-tools/WordCounter';
-import CharacterCounter from './pages/text-tools/CharacterCounter';
-import SentenceCounter from './pages/text-tools/SentenceCounter';
-import ParagraphCounter from './pages/text-tools/ParagraphCounter';
-import CaseConverter from './pages/text-tools/CaseConverter';
-import TextToBinary from './pages/text-tools/TextToBinary';
-import TextToASCII from './pages/text-tools/TextToASCII';
-import ReverseText from './pages/text-tools/ReverseText';
-import RemoveDuplicates from './pages/text-tools/RemoveDuplicates';
-import RemoveExtraSpaces from './pages/text-tools/RemoveExtraSpaces';
-import AlphabeticalOrder from './pages/text-tools/AlphabeticalOrder';
-import TextSorter from './pages/text-tools/TextSorter';
-import PalindromeChecker from './pages/text-tools/PalindromeChecker';
-import TextEncryptor from './pages/text-tools/TextEncryptor';
-import ROT13Encoder from './pages/text-tools/ROT13Encoder';
-import TextToMorse from './pages/text-tools/TextToMorse';
-import TextToHex from './pages/text-tools/TextToHex';
-import TextToOctal from './pages/text-tools/TextToOctal';
+const WordCounter = lazy(() => import('./pages/text-tools/WordCounter'));
+const CharacterCounter = lazy(() => import('./pages/text-tools/CharacterCounter'));
+const SentenceCounter = lazy(() => import('./pages/text-tools/SentenceCounter'));
+const ParagraphCounter = lazy(() => import('./pages/text-tools/ParagraphCounter'));
+const CaseConverter = lazy(() => import('./pages/text-tools/CaseConverter'));
+const TextToBinary = lazy(() => import('./pages/text-tools/TextToBinary'));
+const TextToASCII = lazy(() => import('./pages/text-tools/TextToASCII'));
+const ReverseText = lazy(() => import('./pages/text-tools/ReverseText'));
+const RemoveDuplicates = lazy(() => import('./pages/text-tools/RemoveDuplicates'));
+const RemoveExtraSpaces = lazy(() => import('./pages/text-tools/RemoveExtraSpaces'));
+const AlphabeticalOrder = lazy(() => import('./pages/text-tools/AlphabeticalOrder'));
+const TextSorter = lazy(() => import('./pages/text-tools/TextSorter'));
+const PalindromeChecker = lazy(() => import('./pages/text-tools/PalindromeChecker'));
+const TextEncryptor = lazy(() => import('./pages/text-tools/TextEncryptor'));
+const ROT13Encoder = lazy(() => import('./pages/text-tools/ROT13Encoder'));
+const TextToMorse = lazy(() => import('./pages/text-tools/TextToMorse'));
+const TextToHex = lazy(() => import('./pages/text-tools/TextToHex'));
+const TextToOctal = lazy(() => import('./pages/text-tools/TextToOctal'));
 
 // SEO Tools
-import MetaTagGenerator from './pages/seo-tools/MetaTagGenerator';
-import KeywordDensityChecker from './pages/seo-tools/KeywordDensityChecker';
-import URLSlugGenerator from './pages/seo-tools/URLSlugGenerator';
-import SitemapGenerator from './pages/seo-tools/SitemapGenerator';
-import RobotsGenerator from './pages/seo-tools/RobotsGenerator';
-import HeadingAnalyzer from './pages/seo-tools/HeadingAnalyzer';
-import OpenGraphGenerator from './pages/seo-tools/OpenGraphGenerator';
-import SchemaMarkupGenerator from './pages/seo-tools/SchemaMarkupGenerator';
-import SEOAnalyzer from './pages/seo-tools/SEOAnalyzer';
-import PageSpeedAnalyzer from './pages/seo-tools/PageSpeedAnalyzer';
-import BacklinkChecker from './pages/seo-tools/BacklinkChecker';
-import GoogleIndexChecker from './pages/seo-tools/GoogleIndexChecker';
-import LinkAnalyzer from './pages/seo-tools/LinkAnalyzer';
-import ImageSEOAnalyzer from './pages/seo-tools/ImageSEOAnalyzer';
-import SocialMediaPreview from './pages/seo-tools/SocialMediaPreview';
-import CanonicalTagGenerator from './pages/seo-tools/CanonicalTagGenerator';
+const MetaTagGenerator = lazy(() => import('./pages/seo-tools/MetaTagGenerator'));
+const KeywordDensityChecker = lazy(() => import('./pages/seo-tools/KeywordDensityChecker'));
+const URLSlugGenerator = lazy(() => import('./pages/seo-tools/URLSlugGenerator'));
+const SitemapGenerator = lazy(() => import('./pages/seo-tools/SitemapGenerator'));
+const RobotsGenerator = lazy(() => import('./pages/seo-tools/RobotsGenerator'));
+const HeadingAnalyzer = lazy(() => import('./pages/seo-tools/HeadingAnalyzer'));
+const OpenGraphGenerator = lazy(() => import('./pages/seo-tools/OpenGraphGenerator'));
+const SchemaMarkupGenerator = lazy(() => import('./pages/seo-tools/SchemaMarkupGenerator'));
+const SEOAnalyzer = lazy(() => import('./pages/seo-tools/SEOAnalyzer'));
+const PageSpeedAnalyzer = lazy(() => import('./pages/seo-tools/PageSpeedAnalyzer'));
+const BacklinkChecker = lazy(() => import('./pages/seo-tools/BacklinkChecker'));
+const GoogleIndexChecker = lazy(() => import('./pages/seo-tools/GoogleIndexChecker'));
+const LinkAnalyzer = lazy(() => import('./pages/seo-tools/LinkAnalyzer'));
+const ImageSEOAnalyzer = lazy(() => import('./pages/seo-tools/ImageSEOAnalyzer'));
+const SocialMediaPreview = lazy(() => import('./pages/seo-tools/SocialMediaPreview'));
+const CanonicalTagGenerator = lazy(() => import('./pages/seo-tools/CanonicalTagGenerator'));
 
 // Calculator Tools
-import BasicCalculator from './pages/calculator-tools/BasicCalculator';
-import BMICalculator from './pages/calculator-tools/BMICalculator';
-import AgeCalculator from './pages/calculator-tools/AgeCalculator';
-import PercentageCalculator from './pages/calculator-tools/PercentageCalculator';
-import DiscountCalculator from './pages/calculator-tools/DiscountCalculator';
-import LoanCalculator from './pages/calculator-tools/LoanCalculator';
-import EMICalculator from './pages/calculator-tools/EMICalculator';
-import TipCalculator from './pages/calculator-tools/TipCalculator';
-import DateDifferenceCalculator from './pages/calculator-tools/DateDifferenceCalculator';
-import GSTCalculator from './pages/calculator-tools/GSTCalculator';
-import CompoundInterestCalculator from './pages/calculator-tools/CompoundInterestCalculator';
-import SimpleInterestCalculator from './pages/calculator-tools/SimpleInterestCalculator';
-import AreaCalculator from './pages/calculator-tools/AreaCalculator';
-import VolumeCalculator from './pages/calculator-tools/VolumeCalculator';
-import LoveCalculator from './pages/calculator-tools/LoveCalculator';
+const BasicCalculator = lazy(() => import('./pages/calculator-tools/BasicCalculator'));
+const BMICalculator = lazy(() => import('./pages/calculator-tools/BMICalculator'));
+const AgeCalculator = lazy(() => import('./pages/calculator-tools/AgeCalculator'));
+const PercentageCalculator = lazy(() => import('./pages/calculator-tools/PercentageCalculator'));
+const DiscountCalculator = lazy(() => import('./pages/calculator-tools/DiscountCalculator'));
+const LoanCalculator = lazy(() => import('./pages/calculator-tools/LoanCalculator'));
+const EMICalculator = lazy(() => import('./pages/calculator-tools/EMICalculator'));
+const TipCalculator = lazy(() => import('./pages/calculator-tools/TipCalculator'));
+const DateDifferenceCalculator = lazy(() => import('./pages/calculator-tools/DateDifferenceCalculator'));
+const GSTCalculator = lazy(() => import('./pages/calculator-tools/GSTCalculator'));
+const CompoundInterestCalculator = lazy(() => import('./pages/calculator-tools/CompoundInterestCalculator'));
+const SimpleInterestCalculator = lazy(() => import('./pages/calculator-tools/SimpleInterestCalculator'));
+const AreaCalculator = lazy(() => import('./pages/calculator-tools/AreaCalculator'));
+const VolumeCalculator = lazy(() => import('./pages/calculator-tools/VolumeCalculator'));
+const LoveCalculator = lazy(() => import('./pages/calculator-tools/LoveCalculator'));
 
 // Unit Converters
-import TemperatureConverter from './pages/unit-converters/TemperatureConverter';
-import LengthConverter from './pages/unit-converters/LengthConverter';
-import WeightConverter from './pages/unit-converters/WeightConverter';
-import SpeedConverter from './pages/unit-converters/SpeedConverter';
-import TimeConverter from './pages/unit-converters/TimeConverter';
-import AreaConverter from './pages/unit-converters/AreaConverter';
-import VolumeConverter from './pages/unit-converters/VolumeConverter';
-import PressureConverter from './pages/unit-converters/PressureConverter';
-import EnergyConverter from './pages/unit-converters/EnergyConverter';
-import DataStorageConverter from './pages/unit-converters/DataStorageConverter';
-import PowerConverter from './pages/unit-converters/PowerConverter';
-import CurrencyConverter from './pages/unit-converters/CurrencyConverter';
+const TemperatureConverter = lazy(() => import('./pages/unit-converters/TemperatureConverter'));
+const LengthConverter = lazy(() => import('./pages/unit-converters/LengthConverter'));
+const WeightConverter = lazy(() => import('./pages/unit-converters/WeightConverter'));
+const SpeedConverter = lazy(() => import('./pages/unit-converters/SpeedConverter'));
+const TimeConverter = lazy(() => import('./pages/unit-converters/TimeConverter'));
+const AreaConverter = lazy(() => import('./pages/unit-converters/AreaConverter'));
+const VolumeConverter = lazy(() => import('./pages/unit-converters/VolumeConverter'));
+const PressureConverter = lazy(() => import('./pages/unit-converters/PressureConverter'));
+const EnergyConverter = lazy(() => import('./pages/unit-converters/EnergyConverter'));
+const DataStorageConverter = lazy(() => import('./pages/unit-converters/DataStorageConverter'));
+const PowerConverter = lazy(() => import('./pages/unit-converters/PowerConverter'));
+const CurrencyConverter = lazy(() => import('./pages/unit-converters/CurrencyConverter'));
 
 // Color Tools
-import ColorPicker from './pages/color-tools/ColorPicker';
-import ColorConverter from './pages/color-tools/ColorConverter';
-import GradientGenerator from './pages/color-tools/GradientGenerator';
-import ColorPaletteGenerator from './pages/color-tools/ColorPaletteGenerator';
-import RandomColorGenerator from './pages/color-tools/RandomColorGenerator';
-import ColorContrastChecker from './pages/color-tools/ColorContrastChecker';
+const ColorPicker = lazy(() => import('./pages/color-tools/ColorPicker'));
+const ColorConverter = lazy(() => import('./pages/color-tools/ColorConverter'));
+const GradientGenerator = lazy(() => import('./pages/color-tools/GradientGenerator'));
+const ColorPaletteGenerator = lazy(() => import('./pages/color-tools/ColorPaletteGenerator'));
+const RandomColorGenerator = lazy(() => import('./pages/color-tools/RandomColorGenerator'));
+const ColorContrastChecker = lazy(() => import('./pages/color-tools/ColorContrastChecker'));
+const HexToRGB = lazy(() => import('./pages/color-tools/HexToRGB'));
+const RGBToHex = lazy(() => import('./pages/color-tools/RGBToHex'));
 
 // File Tools
-import CSVToJSON from './pages/file-tools/CSVToJSON';
-import JSONToCSV from './pages/file-tools/JSONToCSV';
-import TXTToPDF from './pages/file-tools/TXTToPDF';
-import ZIPExtractor from './pages/file-tools/ZIPExtractor';
+const CSVToJSON = lazy(() => import('./pages/file-tools/CSVToJSON'));
+const JSONToCSV = lazy(() => import('./pages/file-tools/JSONToCSV'));
+const TXTToPDF = lazy(() => import('./pages/file-tools/TXTToPDF'));
+const ZIPExtractor = lazy(() => import('./pages/file-tools/ZIPExtractor'));
 
 // Audio Tools
-import MP3Cutter from './pages/audio-tools/MP3Cutter';
-import AudioConverter from './pages/audio-tools/AudioConverter';
+const MP3Cutter = lazy(() => import('./pages/audio-tools/MP3Cutter'));
+const AudioConverter = lazy(() => import('./pages/audio-tools/AudioConverter'));
 
 // Video Tools
-import VideoCutter from './pages/video-tools/VideoCutter';
-
-// Additional Color Tools
-import HexToRGB from './pages/color-tools/HexToRGB';
-import RGBToHex from './pages/color-tools/RGBToHex';
+const VideoCutter = lazy(() => import('./pages/video-tools/VideoCutter'));
 
 // Admin Pages
-import AdminLogin from './pages/admin/Login';
-import AdminDashboard from './pages/admin/Dashboard';
+const AdminLogin = lazy(() => import('./pages/admin/Login'));
+const AdminDashboard = lazy(() => import('./pages/admin/Dashboard'));
 
 function App() {
   useEffect(() => {
@@ -117,6 +118,14 @@ function App() {
   return (
     <Router>
       <div className="min-h-screen bg-dark-gradient font-poppins">
+        <Suspense fallback={
+          <div className="min-h-screen flex items-center justify-center">
+            <div className="text-center">
+              <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-cyan-500"></div>
+              <p className="mt-4 text-white/70">Loading...</p>
+            </div>
+          </div>
+        }>
         <Routes>
           <Route path="/" element={<Home />} />
           
@@ -216,6 +225,7 @@ function App() {
           <Route path="/admin/login" element={<AdminLogin />} />
           <Route path="/admin/dashboard" element={<AdminDashboard />} />
         </Routes>
+        </Suspense>
       </div>
     </Router>
   );

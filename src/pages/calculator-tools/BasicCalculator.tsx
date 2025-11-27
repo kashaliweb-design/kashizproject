@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Layout from '../../components/Layout';
-import PageContent from '../../components/PageContent';
 
 const BasicCalculator: React.FC = () => {
   const [display, setDisplay] = useState('0');
@@ -532,8 +531,6 @@ const BasicCalculator: React.FC = () => {
           </div>
         </div>
       </div>
-
-        <PageContent />
     </Layout>
   );
 };

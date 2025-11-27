@@ -49,7 +49,12 @@ const TipCalculator: React.FC = () => {
   const commonTips = [10, 15, 18, 20, 25];
 
   return (
-    <Layout title="Tip Calculator" showBackButton>
+    <Layout 
+      title="Tip Calculator" 
+      showBackButton
+      seoTitle="Tip Calculator – Calculate Tips Instantly with Toolistaan"
+      seoDescription="Free online tip calculator to calculate tips, split bills, and add tax. Perfect for restaurants, delivery, taxis & more. Fast, accurate & easy to use!"
+    >
       <div className="max-w-4xl mx-auto space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Input Section */}
